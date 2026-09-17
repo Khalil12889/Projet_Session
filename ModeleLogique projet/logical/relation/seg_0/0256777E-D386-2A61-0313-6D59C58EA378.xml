@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Emprunt" directorySegmentName="seg_0" id="0256777E-D386-2A61-0313-6D59C58EA378">
+<createdBy>k</createdBy>
+<createdTime>2026-09-17 19:16:17 UTC</createdTime>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<engineerTo>
+<item key="E5A0D8B7-F0E2-572E-EC8E-4F7F7256591E" value="true"/>
+</engineerTo>
+<sourcePk>28433F16-B649-6E81-BF90-BA5F46606B47</sourcePk>
+<targetPk>15E1977F-2EDF-7D3A-6FC8-E69F944DB07A</targetPk>
+<identifying>false</identifying>
+<nameOnSource>emprunter</nameOnSource>
+<nameOnTarget>etre emprunter</nameOnTarget>
+<optionalSource>true</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>0E3BCDFD-489C-9DBF-4408-C02D9778739A</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>5B7D9350-66DA-4242-8B15-FF538C0C5E69</targetEntity>
+<transferable>true</transferable>
+<deleteRule>CASCADE</deleteRule>
+</Relation>

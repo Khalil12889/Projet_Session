@@ -1,0 +1,164 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="5B7D9350-66DA-4242-8B15-FF538C0C5E69" name="Livre">
+<createdBy>k</createdBy>
+<createdTime>2026-09-17 17:29:32 UTC</createdTime>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<engineerTo>
+<item key="E5A0D8B7-F0E2-572E-EC8E-4F7F7256591E" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="idLivre" id="C1727E85-748A-165A-A914-C3ABBA2B3501">
+<createdBy>k</createdBy>
+<createdTime>2026-09-17 17:30:45 UTC</createdTime>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<engineerTo>
+<item key="E5A0D8B7-F0E2-572E-EC8E-4F7F7256591E" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="titre" id="E409E0DE-F17D-3153-051E-980FA0446586">
+<createdBy>k</createdBy>
+<createdTime>2026-09-17 17:31:07 UTC</createdTime>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<engineerTo>
+<item key="E5A0D8B7-F0E2-572E-EC8E-4F7F7256591E" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>256 CHAR</dataTypeSize>
+<ownDataTypeParameters>256 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="datePublication" id="3EBF8FC0-FA60-A4FD-81EE-759CD4D760BB">
+<createdBy>k</createdBy>
+<createdTime>2026-09-17 19:21:25 UTC</createdTime>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<engineerTo>
+<item key="E5A0D8B7-F0E2-572E-EC8E-4F7F7256591E" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="numeroIsbn" id="5E6F5A0F-81DB-CB56-9046-1D081C02341A">
+<createdBy>k</createdBy>
+<createdTime>2026-09-17 19:21:57 UTC</createdTime>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<engineerTo>
+<item key="E5A0D8B7-F0E2-572E-EC8E-4F7F7256591E" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="description" id="84424806-96D8-F843-F79B-A471C94AD779">
+<createdBy>k</createdBy>
+<createdTime>2026-09-17 19:22:33 UTC</createdTime>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<engineerTo>
+<item key="E5A0D8B7-F0E2-572E-EC8E-4F7F7256591E" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>256 CHAR</dataTypeSize>
+<ownDataTypeParameters>256 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="imageCouverture" id="2F4107A9-1C85-FDBE-F476-BA6C7EC29223">
+<createdBy>k</createdBy>
+<createdTime>2026-09-17 19:24:16 UTC</createdTime>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<engineerTo>
+<item key="E5A0D8B7-F0E2-572E-EC8E-4F7F7256591E" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT010</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="idGenre" id="62145DA2-D046-9302-61DE-ECE06C7AF100">
+<createdBy>k</createdBy>
+<createdTime>2026-09-17 19:37:26 UTC</createdTime>
+<generatorID>74E51575-DA6F-9F8B-7DE1-A0EBBE20B0D7</generatorID>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<engineerTo>
+<item key="E5A0D8B7-F0E2-572E-EC8E-4F7F7256591E" value="true"/>
+</engineerTo>
+<referedAttribute>8030453F-5D36-AF46-E60A-0071873CE870</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="idAuteur" id="B54534EE-354A-FD51-9F31-95C51F8D3208">
+<createdBy>k</createdBy>
+<createdTime>2026-09-17 19:39:26 UTC</createdTime>
+<generatorID>5534AC83-19C3-A8DF-A9E1-020C27C394A9</generatorID>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<engineerTo>
+<item key="E5A0D8B7-F0E2-572E-EC8E-4F7F7256591E" value="true"/>
+</engineerTo>
+<referedAttribute>B19B6E45-C937-2957-78B1-8E01C68F0525</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="idEtat" id="1BBB75FC-C768-1AE3-05B0-56EA16FC9F23">
+<createdBy>k</createdBy>
+<createdTime>2026-09-17 19:47:54 UTC</createdTime>
+<generatorID>92C7D619-9A34-C54B-4C9F-7D271FCDCD9F</generatorID>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<engineerTo>
+<item key="E5A0D8B7-F0E2-572E-EC8E-4F7F7256591E" value="true"/>
+</engineerTo>
+<referedAttribute>E5242400-02B3-798B-0FAB-242D5611E811</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="idME" id="2793C85B-B1B0-E774-B189-CB98A2A68274">
+<createdBy>k</createdBy>
+<createdTime>2026-09-17 19:49:11 UTC</createdTime>
+<generatorID>63C3CDC2-AC0B-BB32-B411-B94136FCFFA6</generatorID>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<engineerTo>
+<item key="E5A0D8B7-F0E2-572E-EC8E-4F7F7256591E" value="true"/>
+</engineerTo>
+<referedAttribute>D1C66A41-66D2-9560-5784-56F568EE1FA0</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="15E1977F-2EDF-7D3A-6FC8-E69F944DB07A" name="Livre PK">
+<createdBy>k</createdBy>
+<createdTime>2026-09-17 17:31:03 UTC</createdTime>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<engineerTo>
+<item key="E5A0D8B7-F0E2-572E-EC8E-4F7F7256591E" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>C1727E85-748A-165A-A914-C3ABBA2B3501</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
