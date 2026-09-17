@@ -104,18 +104,19 @@
 <logicalDatatype>LOGDT007</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="status" id="7FB424BA-6A66-6D53-137F-3F2AC6175DA8">
+<Attribute name="idStatus" id="535FDB67-6A2A-06AE-5944-8D668B76A59C">
 <createdBy>k</createdBy>
-<createdTime>2026-09-17 17:25:01 UTC</createdTime>
+<createdTime>2026-09-17 20:36:33 UTC</createdTime>
+<generatorID>30223120-43EE-B6CF-664B-7191A2259D57</generatorID>
 <ownerDesignName>ModeleLogique projet</ownerDesignName>
 <engineerTo>
 <item key="E5A0D8B7-F0E2-572E-EC8E-4F7F7256591E" value="true"/>
 </engineerTo>
+<referedAttribute>6065DC1D-3B5A-41D4-F2F9-A32485EA499F</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>25</dataTypeSize>
-<ownDataTypeParameters>25,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">

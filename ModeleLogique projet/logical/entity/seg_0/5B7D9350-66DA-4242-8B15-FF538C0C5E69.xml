@@ -146,6 +146,19 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="estEmprunter" id="8B2BCCC3-C683-66B5-207B-A7F048DAC045">
+<createdBy>k</createdBy>
+<createdTime>2026-09-17 20:37:55 UTC</createdTime>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<engineerTo>
+<item key="E5A0D8B7-F0E2-572E-EC8E-4F7F7256591E" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="15E1977F-2EDF-7D3A-6FC8-E69F944DB07A" name="Livre PK">
