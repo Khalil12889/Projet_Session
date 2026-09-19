@@ -15,7 +15,7 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="id" id="924A31BE-6EC9-4048-903F-8732A76CB25E">
+<Attribute name="idAdresse" id="924A31BE-6EC9-4048-903F-8732A76CB25E">
 <createdBy>k</createdBy>
 <createdTime>2026-09-17 19:53:38 UTC</createdTime>
 <ownerDesignName>ModeleLogique projet</ownerDesignName>
@@ -42,32 +42,6 @@
 <Attribute name="nomDeRue" id="366F1383-680B-B886-6EDF-2C5538ED519C">
 <createdBy>k</createdBy>
 <createdTime>2026-09-17 19:54:37 UTC</createdTime>
-<ownerDesignName>ModeleLogique projet</ownerDesignName>
-<engineerTo>
-<item key="E5A0D8B7-F0E2-572E-EC8E-4F7F7256591E" value="true"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>64 CHAR</dataTypeSize>
-<ownDataTypeParameters>64 CHAR,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="province" id="E708254D-A869-09C9-C0D4-8DCA5947DA12">
-<createdBy>k</createdBy>
-<createdTime>2026-09-17 19:54:56 UTC</createdTime>
-<ownerDesignName>ModeleLogique projet</ownerDesignName>
-<engineerTo>
-<item key="E5A0D8B7-F0E2-572E-EC8E-4F7F7256591E" value="true"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>64 CHAR</dataTypeSize>
-<ownDataTypeParameters>64 CHAR,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="pays" id="7C3B2C74-C143-24FF-F8E5-13E5051A91D8">
-<createdBy>k</createdBy>
-<createdTime>2026-09-17 19:55:24 UTC</createdTime>
 <ownerDesignName>ModeleLogique projet</ownerDesignName>
 <engineerTo>
 <item key="E5A0D8B7-F0E2-572E-EC8E-4F7F7256591E" value="true"/>

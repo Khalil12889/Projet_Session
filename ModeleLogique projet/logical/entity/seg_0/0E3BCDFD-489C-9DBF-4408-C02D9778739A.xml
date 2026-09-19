@@ -118,6 +118,20 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="idAdresse" id="E6E202FA-3EEC-7A0D-D562-5D6D66ACC1C3">
+<createdBy>k</createdBy>
+<createdTime>2026-09-19 20:29:53 UTC</createdTime>
+<generatorID>F4C3ED0D-6E31-BAE4-BEC1-FDA837050C4D</generatorID>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<engineerTo>
+<item key="E5A0D8B7-F0E2-572E-EC8E-4F7F7256591E" value="true"/>
+</engineerTo>
+<referedAttribute>924A31BE-6EC9-4048-903F-8732A76CB25E</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="28433F16-B649-6E81-BF90-BA5F46606B47" name="Membre PK">
