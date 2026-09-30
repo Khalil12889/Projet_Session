@@ -1,0 +1,214 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="41B54595-DB62-934A-8C9F-75227E6F7308" name="livre">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 20:34:07 UTC</createdTime>
+<generatorID>5B7D9350-66DA-4242-8B15-FF538C0C5E69</generatorID>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="idLivre" id="7497D19C-F1F1-069E-2ADD-FDA2A2CD978A">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 20:34:07 UTC</createdTime>
+<generatorID>C1727E85-748A-165A-A914-C3ABBA2B3501</generatorID>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="titre" id="21F74651-EB13-B81F-7F0A-F3F0F7E38249">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 20:34:07 UTC</createdTime>
+<generatorID>E409E0DE-F17D-3153-051E-980FA0446586</generatorID>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>256 CHAR</dataTypeSize>
+<ownDataTypeParameters>256 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="datePublication" id="0B795D29-46FD-0EA8-7BF1-C13A46FFE3BB">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 20:34:07 UTC</createdTime>
+<generatorID>3EBF8FC0-FA60-A4FD-81EE-759CD4D760BB</generatorID>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="numeroIsbn" id="BE447633-E06F-0C82-1110-7130D5916FDE">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 20:34:07 UTC</createdTime>
+<generatorID>5E6F5A0F-81DB-CB56-9046-1D081C02341A</generatorID>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="description" id="DC8C5AE3-723F-C7EF-1C6C-009AA80A0285">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 20:34:07 UTC</createdTime>
+<generatorID>84424806-96D8-F843-F79B-A471C94AD779</generatorID>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>256 CHAR</dataTypeSize>
+<ownDataTypeParameters>256 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="cheminImageCouverture" id="B8A890A3-B49F-1794-F591-77C66BDAF4E7">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 20:34:07 UTC</createdTime>
+<generatorID>2F4107A9-1C85-FDBE-F476-BA6C7EC29223</generatorID>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>256 CHAR</dataTypeSize>
+<ownDataTypeParameters>256 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="estEmprunte" id="B3C5F7BB-1375-2118-544C-FB890C4C91A8">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 20:34:07 UTC</createdTime>
+<generatorID>8B2BCCC3-C683-66B5-207B-A7F048DAC045</generatorID>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="genre_idGenre" id="ADEF07DF-59B9-ABF8-944D-9AC72F03DB83">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 20:34:07 UTC</createdTime>
+<generatorID>62145DA2-D046-9302-61DE-ECE06C7AF100</generatorID>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="4AD3BBFE-D918-BBF5-79B1-8AC37344AFDF" referredColumn="5F529CB7-FAB1-1897-F162-3A168A9DE5AF"/>
+</associations>
+</Column>
+<Column name="auteur_idAuteur" id="9FC72825-4134-B071-1D67-C0C8D43E60E7">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 20:34:07 UTC</createdTime>
+<generatorID>B54534EE-354A-FD51-9F31-95C51F8D3208</generatorID>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="10CF2C06-9856-95EB-4891-F79DFB73935E" referredColumn="84A32572-1C18-8D90-C353-DF53AB2C0C83"/>
+</associations>
+</Column>
+<Column name="etat_idEtat" id="A7AA477F-C4D4-E8EF-867C-5B8500D12319">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 20:34:07 UTC</createdTime>
+<generatorID>1BBB75FC-C768-1AE3-05B0-56EA16FC9F23</generatorID>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="810A65F3-5A1D-95A6-39E9-63762A393F0D" referredColumn="8D09FCE6-F490-8B83-5248-DFF64D7EAC90"/>
+</associations>
+</Column>
+<Column name="maisonEdition_idME" id="94D25984-09F3-543E-FA23-E6D3A4B9C15B">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 20:34:07 UTC</createdTime>
+<generatorID>2793C85B-B1B0-E774-B189-CB98A2A68274</generatorID>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="3CE22A2B-BEAE-B2BA-7319-5AAA2216AB11" referredColumn="F6E77A01-4DF6-F3BA-37E7-FC47A1FE1145"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="42AFA2AA-8A62-C5DD-D6AD-56DDF5A370DF" name="livre_PK">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 20:34:07 UTC</createdTime>
+<generatorID>15E1977F-2EDF-7D3A-6FC8-E69F944DB07A</generatorID>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7497D19C-F1F1-069E-2ADD-FDA2A2CD978A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1C44BF58-B433-51F9-DACB-276F54D7A3C3" name="livre_etat_FK">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 20:34:07 UTC</createdTime>
+<generatorID>92C7D619-9A34-C54B-4C9F-7D271FCDCD9F</generatorID>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A7AA477F-C4D4-E8EF-867C-5B8500D12319"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0DB9C4C9-2DC3-A1DE-2AFD-F6687F188289" name="livre_genre_FK">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 20:34:07 UTC</createdTime>
+<generatorID>74E51575-DA6F-9F8B-7DE1-A0EBBE20B0D7</generatorID>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="ADEF07DF-59B9-ABF8-944D-9AC72F03DB83"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="46DC9B73-A4DA-38DF-A0BD-C380AE7EF596" name="livre_maisonEdition_FK">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 20:34:07 UTC</createdTime>
+<generatorID>63C3CDC2-AC0B-BB32-B411-B94136FCFFA6</generatorID>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="94D25984-09F3-543E-FA23-E6D3A4B9C15B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9D4D158B-1C40-3481-D2DF-01B7A7F3BC09" name="livre_auteur_FK">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 20:34:07 UTC</createdTime>
+<generatorID>5534AC83-19C3-A8DF-A9E1-020C27C394A9</generatorID>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9FC72825-4134-B071-1D67-C0C8D43E60E7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

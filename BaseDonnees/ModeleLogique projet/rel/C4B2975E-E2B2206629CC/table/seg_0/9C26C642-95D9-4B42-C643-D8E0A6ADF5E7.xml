@@ -1,0 +1,64 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="9C26C642-95D9-4B42-C643-D8E0A6ADF5E7" name="droit">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 20:34:07 UTC</createdTime>
+<generatorID>1EBD270B-0FF3-1BD7-CED9-70F048F3AEEF</generatorID>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="idDroit" id="D02C1609-76BC-698F-19EC-1AE5192DB22B">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 20:34:07 UTC</createdTime>
+<generatorID>979055CB-C9D1-CE04-8E2C-6D7E7AE290C3</generatorID>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="role_idRole" id="FF229E8F-44B9-908E-2472-5BC9CF592D7A">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 20:34:07 UTC</createdTime>
+<generatorID>586B70E5-9448-3916-A227-E4EC60960DFC</generatorID>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="97BA06CE-4F61-ACB8-0216-4053A8088B22" referredColumn="98EC43A0-586D-943E-DE7C-6E6389F14786"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="5D0917EA-196B-89DE-490B-003DA19CFBCA" name="droit_PK">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 20:34:07 UTC</createdTime>
+<generatorID>41341914-D57A-4F99-B832-BDEE052431D6</generatorID>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D02C1609-76BC-698F-19EC-1AE5192DB22B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="EA1D4254-A995-AB2A-5461-105AC9A31ED9" name="droit_role_FK">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 20:34:07 UTC</createdTime>
+<generatorID>0591C939-6F68-3EF0-6CFE-EC48A48FFB5E</generatorID>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FF229E8F-44B9-908E-2472-5BC9CF592D7A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="810A65F3-5A1D-95A6-39E9-63762A393F0D" containerWithKeyObject="41B54595-DB62-934A-8C9F-75227E6F7308" localFKIndex="1C44BF58-B433-51F9-DACB-276F54D7A3C3" name="livre_etat_FK">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 20:34:07 UTC</createdTime>
+<generatorID>92C7D619-9A34-C54B-4C9F-7D271FCDCD9F</generatorID>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<referredTableLongName>etat</referredTableLongName>
+<deleteRule>CASCADE</deleteRule>
+<referredTableID>5C97775D-986E-ACFF-C062-A44134ECC820</referredTableID>
+<keyObject>D093B5A7-4AFC-7307-2FA7-13A03EE72268</keyObject>
+<referredKeyID>D093B5A7-4AFC-7307-2FA7-13A03EE72268</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>idEtat</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

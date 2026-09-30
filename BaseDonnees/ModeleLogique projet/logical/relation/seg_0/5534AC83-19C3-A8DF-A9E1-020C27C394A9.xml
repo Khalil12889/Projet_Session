@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="proprieteIntellectuelle" directorySegmentName="seg_0" id="5534AC83-19C3-A8DF-A9E1-020C27C394A9">
+<createdBy>k</createdBy>
+<createdTime>2026-09-17 19:29:48 UTC</createdTime>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<engineerTo>
+<item key="E5A0D8B7-F0E2-572E-EC8E-4F7F7256591E" value="true"/>
+</engineerTo>
+<sourcePk>D36C8CDD-1602-045F-852F-ADD66C21ED72</sourcePk>
+<targetPk>15E1977F-2EDF-7D3A-6FC8-E69F944DB07A</targetPk>
+<identifying>false</identifying>
+<nameOnSource>ecrire</nameOnSource>
+<nameOnTarget>appartenir</nameOnTarget>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>1C264C57-8967-3F8C-EE2C-0284642E1D45</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>5B7D9350-66DA-4242-8B15-FF538C0C5E69</targetEntity>
+<transferable>true</transferable>
+<deleteRule>CASCADE</deleteRule>
+</Relation>

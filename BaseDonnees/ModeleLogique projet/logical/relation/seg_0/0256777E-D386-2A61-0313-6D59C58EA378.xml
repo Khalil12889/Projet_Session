@@ -1,0 +1,91 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="emprunt" directorySegmentName="seg_0" id="0256777E-D386-2A61-0313-6D59C58EA378">
+<createdBy>k</createdBy>
+<createdTime>2026-09-17 19:16:17 UTC</createdTime>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<engineerTo>
+<item key="C4B2975E-1AC5-621C-CA5F-E2B2206629CC" value="true"/>
+<item key="E5A0D8B7-F0E2-572E-EC8E-4F7F7256591E" value="true"/>
+</engineerTo>
+<sourcePk>28433F16-B649-6E81-BF90-BA5F46606B47</sourcePk>
+<identifying>false</identifying>
+<nameOnSource>emprunter</nameOnSource>
+<nameOnTarget>etre emprunter</nameOnTarget>
+<optionalSource>true</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>0E3BCDFD-489C-9DBF-4408-C02D9778739A</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>5B7D9350-66DA-4242-8B15-FF538C0C5E69</targetEntity>
+<transferable>true</transferable>
+<deleteRule>CASCADE</deleteRule>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<attribute name="idEmprunt" id="B0027821-5BAC-9E5B-C1E9-C93DF23DADBE">
+<createdBy>k</createdBy>
+<createdTime>2026-09-17 20:57:11 UTC</createdTime>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<engineerTo>
+<item key="C4B2975E-1AC5-621C-CA5F-E2B2206629CC" value="true"/>
+<item key="E5A0D8B7-F0E2-572E-EC8E-4F7F7256591E" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</attribute>
+<attribute name="dateDebut" id="CDF99882-D8BA-C68D-CB7C-06FA3E5C975D">
+<createdBy>k</createdBy>
+<createdTime>2026-09-17 20:53:14 UTC</createdTime>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<engineerTo>
+<item key="C4B2975E-1AC5-621C-CA5F-E2B2206629CC" value="true"/>
+<item key="E5A0D8B7-F0E2-572E-EC8E-4F7F7256591E" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</attribute>
+<attribute name="dateRetourPrevue" id="281CB942-C00D-884A-017A-AD2BA05AFB93">
+<createdBy>k</createdBy>
+<createdTime>2026-09-17 20:53:39 UTC</createdTime>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<engineerTo>
+<item key="C4B2975E-1AC5-621C-CA5F-E2B2206629CC" value="true"/>
+<item key="E5A0D8B7-F0E2-572E-EC8E-4F7F7256591E" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</attribute>
+<attribute name="dateRetour" id="510B5B41-68D8-3633-972F-F85DFBD14345">
+<createdBy>k</createdBy>
+<createdTime>2026-09-17 20:54:19 UTC</createdTime>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<engineerTo>
+<item key="C4B2975E-1AC5-621C-CA5F-E2B2206629CC" value="true"/>
+<item key="E5A0D8B7-F0E2-572E-EC8E-4F7F7256591E" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</attribute>
+<attribute name="enRetard" id="9BE8B031-4992-4F6F-0B47-231ADADFD5AC">
+<createdBy>k</createdBy>
+<createdTime>2026-09-17 20:55:01 UTC</createdTime>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<engineerTo>
+<item key="C4B2975E-1AC5-621C-CA5F-E2B2206629CC" value="true"/>
+<item key="E5A0D8B7-F0E2-572E-EC8E-4F7F7256591E" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+</attribute>
+</attributes>
+</Relation>

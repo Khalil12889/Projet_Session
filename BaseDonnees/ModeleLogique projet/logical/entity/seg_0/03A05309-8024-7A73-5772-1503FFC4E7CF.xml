@@ -1,0 +1,83 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="03A05309-8024-7A73-5772-1503FFC4E7CF" name="adresse">
+<createdBy>k</createdBy>
+<createdTime>2026-09-17 19:53:26 UTC</createdTime>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<engineerTo>
+<item key="C4B2975E-1AC5-621C-CA5F-E2B2206629CC" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="idAdresse" id="924A31BE-6EC9-4048-903F-8732A76CB25E">
+<createdBy>k</createdBy>
+<createdTime>2026-09-17 19:53:38 UTC</createdTime>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<engineerTo>
+<item key="C4B2975E-1AC5-621C-CA5F-E2B2206629CC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="numeroDeBatiment" id="26A7FD54-8AA0-22C5-5B7D-9A28C1BC24DD">
+<createdBy>k</createdBy>
+<createdTime>2026-09-17 19:54:14 UTC</createdTime>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<engineerTo>
+<item key="C4B2975E-1AC5-621C-CA5F-E2B2206629CC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nomDeRue" id="366F1383-680B-B886-6EDF-2C5538ED519C">
+<createdBy>k</createdBy>
+<createdTime>2026-09-17 19:54:37 UTC</createdTime>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<engineerTo>
+<item key="C4B2975E-1AC5-621C-CA5F-E2B2206629CC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>64 CHAR</dataTypeSize>
+<ownDataTypeParameters>64 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="codePostale" id="B528F888-660A-90BB-4413-AFCE85103AE2">
+<createdBy>k</createdBy>
+<createdTime>2026-09-17 19:56:05 UTC</createdTime>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<engineerTo>
+<item key="C4B2975E-1AC5-621C-CA5F-E2B2206629CC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>64 CHAR</dataTypeSize>
+<ownDataTypeParameters>64 CHAR,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="08C52DF8-94E8-C6CB-5912-EE02CE928505" name="adresse PK">
+<createdBy>k</createdBy>
+<createdTime>2026-09-17 19:54:12 UTC</createdTime>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<engineerTo>
+<item key="C4B2975E-1AC5-621C-CA5F-E2B2206629CC" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>924A31BE-6EC9-4048-903F-8732A76CB25E</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

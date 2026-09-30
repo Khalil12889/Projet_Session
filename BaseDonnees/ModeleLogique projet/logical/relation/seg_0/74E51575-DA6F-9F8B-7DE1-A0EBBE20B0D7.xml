@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="livreGenre" directorySegmentName="seg_0" id="74E51575-DA6F-9F8B-7DE1-A0EBBE20B0D7">
+<createdBy>k</createdBy>
+<createdTime>2026-09-17 19:36:33 UTC</createdTime>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<engineerTo>
+<item key="E5A0D8B7-F0E2-572E-EC8E-4F7F7256591E" value="true"/>
+</engineerTo>
+<sourcePk>15E1977F-2EDF-7D3A-6FC8-E69F944DB07A</sourcePk>
+<targetPk>A6ADDD85-03D3-B136-BBEC-6EC6D976173B</targetPk>
+<identifying>false</identifying>
+<nameOnSource>appartenir</nameOnSource>
+<nameOnTarget>contenir</nameOnTarget>
+<optionalSource>false</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>5B7D9350-66DA-4242-8B15-FF538C0C5E69</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>69D46FAB-2FC7-CFD9-72BD-E431C3A33BAD</targetEntity>
+<transferable>true</transferable>
+<deleteRule>CASCADE</deleteRule>
+</Relation>

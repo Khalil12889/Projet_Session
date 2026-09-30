@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="utilisateurSession" directorySegmentName="seg_0" id="24F13D6D-D65E-4C2E-10D3-C0062E508977">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 17:41:40 UTC</createdTime>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<engineerTo>
+<item key="E5A0D8B7-F0E2-572E-EC8E-4F7F7256591E" value="true"/>
+</engineerTo>
+<sourcePk>17D15720-983B-BE93-55F1-F4CE7FE86660</sourcePk>
+<targetPk>89E2BDF0-8D92-334B-CC96-D2A0AB7762E6</targetPk>
+<identifying>false</identifying>
+<nameOnSource>avoir</nameOnSource>
+<nameOnTarget>appartenir</nameOnTarget>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>D1BC2129-8B14-CE19-E299-B8AE17F53955</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>8665ED72-D3F4-1E79-BA9E-D2467FF3DC2B</targetEntity>
+<transferable>true</transferable>
+<deleteRule>CASCADE</deleteRule>
+</Relation>

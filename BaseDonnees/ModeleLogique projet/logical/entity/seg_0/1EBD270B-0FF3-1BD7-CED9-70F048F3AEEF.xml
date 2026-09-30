@@ -1,0 +1,59 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="1EBD270B-0FF3-1BD7-CED9-70F048F3AEEF" name="droit">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 17:40:13 UTC</createdTime>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<engineerTo>
+<item key="C4B2975E-1AC5-621C-CA5F-E2B2206629CC" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="idDroit" id="979055CB-C9D1-CE04-8E2C-6D7E7AE290C3">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 17:40:36 UTC</createdTime>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<engineerTo>
+<item key="C4B2975E-1AC5-621C-CA5F-E2B2206629CC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="idRole" id="586B70E5-9448-3916-A227-E4EC60960DFC">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 17:44:17 UTC</createdTime>
+<generatorID>0591C939-6F68-3EF0-6CFE-EC48A48FFB5E</generatorID>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<engineerTo>
+<item key="C4B2975E-1AC5-621C-CA5F-E2B2206629CC" value="true"/>
+</engineerTo>
+<referedAttribute>1C80960E-2135-8D2C-E514-A32D6E46A66A</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="41341914-D57A-4F99-B832-BDEE052431D6" name="droit PK">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 17:40:52 UTC</createdTime>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<engineerTo>
+<item key="C4B2975E-1AC5-621C-CA5F-E2B2206629CC" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>979055CB-C9D1-CE04-8E2C-6D7E7AE290C3</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
