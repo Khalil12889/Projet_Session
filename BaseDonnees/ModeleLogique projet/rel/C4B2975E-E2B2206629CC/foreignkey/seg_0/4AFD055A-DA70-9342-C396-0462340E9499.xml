@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="4AFD055A-DA70-9342-C396-0462340E9499" containerWithKeyObject="4E1FE864-A567-15FD-B66B-720E53226F5B" localFKIndex="29901721-CF0D-8612-8CAE-3D81F22B723E" name="emprunt_utilisateur_FK">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 20:34:37 UTC</createdTime>
+<generatorID>17D15720-983B-BE93-55F1-F4CE7FE86660</generatorID>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<referredTableLongName>utilisateur</referredTableLongName>
+<deleteRule>CASCADE</deleteRule>
+<referredTableID>C2A4FF00-B225-EDAE-4BA8-28B25641CDB6</referredTableID>
+<keyObject>015114FE-4669-CFB0-338B-4645D9F02DDD</keyObject>
+<referredKeyID>015114FE-4669-CFB0-338B-4645D9F02DDD</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>idUtilisateur</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<discriminatorColumn>188A7327-B100-C104-B01A-AB9C5626397C</discriminatorColumn>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

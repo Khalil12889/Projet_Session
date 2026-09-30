@@ -1,0 +1,169 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="4E1FE864-A567-15FD-B66B-720E53226F5B" name="emprunt">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 20:34:07 UTC</createdTime>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="idEmprunt" id="8BA69E3E-A69C-2203-DE56-8695AE6C6434">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 20:34:07 UTC</createdTime>
+<generatorID>B0027821-5BAC-9E5B-C1E9-C93DF23DADBE</generatorID>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<isRelationshipColumn>true</isRelationshipColumn>
+<isDependOnFK_AsMandatory>true</isDependOnFK_AsMandatory>
+</Column>
+<Column name="membre_idMembre" id="AE23D947-8A1D-1903-ABCC-E93B5DCC58FB">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 20:34:07 UTC</createdTime>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E7523AF4-75A7-4831-CDA0-90BCB0FA6A28" referredColumn="DC1CD238-37B5-0D8E-2295-B54948FA784D"/>
+</associations>
+</Column>
+<Column name="livre_idLivre" id="1C9DA036-0393-6C7A-7DA2-5396188BDCF7">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 20:34:07 UTC</createdTime>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0DFFD084-5600-4843-C1F9-04828B31D970" referredColumn="7497D19C-F1F1-069E-2ADD-FDA2A2CD978A"/>
+</associations>
+</Column>
+<Column name="dateDebut" id="75EFD8AC-C369-13CC-266C-BA25605F9B6D">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 20:34:07 UTC</createdTime>
+<generatorID>CDF99882-D8BA-C68D-CB7C-06FA3E5C975D</generatorID>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<isRelationshipColumn>true</isRelationshipColumn>
+<isDependOnFK_AsMandatory>true</isDependOnFK_AsMandatory>
+</Column>
+<Column name="dateRetourPrevue" id="990B6009-F42E-F337-2D9F-D2F48A9BD9E4">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 20:34:07 UTC</createdTime>
+<generatorID>281CB942-C00D-884A-017A-AD2BA05AFB93</generatorID>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<isRelationshipColumn>true</isRelationshipColumn>
+<isDependOnFK_AsMandatory>true</isDependOnFK_AsMandatory>
+</Column>
+<Column name="dateRetour" id="576D545E-F153-8B48-C4F6-5FF39DEC1D90">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 20:34:07 UTC</createdTime>
+<generatorID>510B5B41-68D8-3633-972F-F85DFBD14345</generatorID>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<isRelationshipColumn>true</isRelationshipColumn>
+</Column>
+<Column name="enRetard" id="2651F502-C1F3-D85A-D751-39EFB7B48357">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 20:34:07 UTC</createdTime>
+<generatorID>9BE8B031-4992-4F6F-0B47-231ADADFD5AC</generatorID>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<isRelationshipColumn>true</isRelationshipColumn>
+<isDependOnFK_AsMandatory>true</isDependOnFK_AsMandatory>
+</Column>
+<Column name="utilisateur_idUtilisateur" id="02200C6C-5154-3C02-DCAF-ADA40B6B2F74">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 20:34:37 UTC</createdTime>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="4AFD055A-DA70-9342-C396-0462340E9499" referredColumn="188A7327-B100-C104-B01A-AB9C5626397C"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="2F941C8D-E739-5D07-5F1B-F148431E51CE" name="emprunt_PK">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 20:34:07 UTC</createdTime>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AE23D947-8A1D-1903-ABCC-E93B5DCC58FB"/>
+<colUsage columnID="1C9DA036-0393-6C7A-7DA2-5396188BDCF7"/>
+<colUsage columnID="8BA69E3E-A69C-2203-DE56-8695AE6C6434"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F24A17AE-3A1D-9461-8FDD-382FE2EA0984" name="emprunt_membre_FK">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 20:34:07 UTC</createdTime>
+<generatorID>0256777E-D386-2A61-0313-6D59C58EA378</generatorID>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AE23D947-8A1D-1903-ABCC-E93B5DCC58FB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E1CD82B0-7570-255E-B622-77F2FF493F15" name="emprunt_livre_FK">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 20:34:07 UTC</createdTime>
+<generatorID>0256777E-D386-2A61-0313-6D59C58EA378</generatorID>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1C9DA036-0393-6C7A-7DA2-5396188BDCF7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="29901721-CF0D-8612-8CAE-3D81F22B723E" name="emprunt_utilisateur_FK">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 20:34:37 UTC</createdTime>
+<generatorID>17D15720-983B-BE93-55F1-F4CE7FE86660</generatorID>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="02200C6C-5154-3C02-DCAF-ADA40B6B2F74"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
