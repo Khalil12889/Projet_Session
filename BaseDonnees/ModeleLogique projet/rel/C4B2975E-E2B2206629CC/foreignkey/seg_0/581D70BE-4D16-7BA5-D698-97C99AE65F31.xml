@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="581D70BE-4D16-7BA5-D698-97C99AE65F31" containerWithKeyObject="D777D79E-17F2-4C4E-8691-584104A9AC03" localFKIndex="8311D9E2-1CDD-82F1-8053-C6763AF38E8E" name="suspensions_membre_FK">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 20:34:07 UTC</createdTime>
+<generatorID>E3AE94DF-9DB5-DFAB-650F-411064585EC5</generatorID>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<referredTableLongName>membre</referredTableLongName>
+<deleteRule>CASCADE</deleteRule>
+<referredTableID>868C2F5E-2FC5-ADA8-5EFA-C802FF1C2689</referredTableID>
+<keyObject>1A8D0EC8-6352-C239-64FF-C9466197C116</keyObject>
+<referredKeyID>1A8D0EC8-6352-C239-64FF-C9466197C116</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>idMembre</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

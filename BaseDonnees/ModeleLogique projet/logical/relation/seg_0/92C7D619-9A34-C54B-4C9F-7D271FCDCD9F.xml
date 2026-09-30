@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="etatLivre" directorySegmentName="seg_0" id="92C7D619-9A34-C54B-4C9F-7D271FCDCD9F">
+<createdBy>k</createdBy>
+<createdTime>2026-09-17 19:45:34 UTC</createdTime>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<engineerTo>
+<item key="E5A0D8B7-F0E2-572E-EC8E-4F7F7256591E" value="true"/>
+</engineerTo>
+<sourcePk>C6B91246-5781-B4BE-5A61-F92B169B8AF5</sourcePk>
+<identifying>false</identifying>
+<nameOnSource>contenir</nameOnSource>
+<nameOnTarget>etre</nameOnTarget>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>80324AD6-21A4-AD9D-B9B7-525EF1067980</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>5B7D9350-66DA-4242-8B15-FF538C0C5E69</targetEntity>
+<transferable>true</transferable>
+<deleteRule>CASCADE</deleteRule>
+</Relation>

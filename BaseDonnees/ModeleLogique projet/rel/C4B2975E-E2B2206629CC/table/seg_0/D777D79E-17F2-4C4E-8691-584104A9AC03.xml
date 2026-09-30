@@ -1,0 +1,100 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="D777D79E-17F2-4C4E-8691-584104A9AC03" name="suspensions">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 20:34:07 UTC</createdTime>
+<generatorID>9E9C32EE-7A73-3DE3-DE9D-76FE1896D72F</generatorID>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="idSuspension" id="5243ACDF-86FA-FEBA-8F56-0887154922B6">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 20:34:07 UTC</createdTime>
+<generatorID>B383118E-64D3-342D-A90F-941367DF0D0C</generatorID>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="dateDebut" id="F9316CC5-CFC1-4C37-482A-C0D2C46D41A4">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 20:34:07 UTC</createdTime>
+<generatorID>649753C2-DA28-2C38-9C7B-A309B08ADB59</generatorID>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="dateFin" id="7A987824-98D4-D33A-49EB-74B4270613F5">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 20:34:07 UTC</createdTime>
+<generatorID>E0079646-7C6C-9012-6549-CAC8FCAD013E</generatorID>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="raison" id="257C780B-6D56-1CAD-B055-25A1957EBB55">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 20:34:07 UTC</createdTime>
+<generatorID>FFB5ACFD-64AD-B97A-3D9F-B0115A925F52</generatorID>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>256 CHAR</dataTypeSize>
+<ownDataTypeParameters>256 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="membre_idMembre" id="4DF97696-4A36-9E22-ED38-26C1A389CD21">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 20:34:07 UTC</createdTime>
+<generatorID>FE92AB6F-700A-064F-797E-95590BAD9989</generatorID>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="581D70BE-4D16-7BA5-D698-97C99AE65F31" referredColumn="DC1CD238-37B5-0D8E-2295-B54948FA784D"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="ADA25EE7-1CDB-49F6-2F38-82061AFCA906" name="suspensions_PK">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 20:34:07 UTC</createdTime>
+<generatorID>5B46A80F-7571-2DA2-B6B5-5D686344E68D</generatorID>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5243ACDF-86FA-FEBA-8F56-0887154922B6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8311D9E2-1CDD-82F1-8053-C6763AF38E8E" name="suspensions_membre_FK">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 20:34:07 UTC</createdTime>
+<generatorID>E3AE94DF-9DB5-DFAB-650F-411064585EC5</generatorID>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4DF97696-4A36-9E22-ED38-26C1A389CD21"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

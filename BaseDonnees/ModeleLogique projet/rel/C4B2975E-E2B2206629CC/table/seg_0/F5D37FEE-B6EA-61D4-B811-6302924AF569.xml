@@ -1,0 +1,51 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="F5D37FEE-B6EA-61D4-B811-6302924AF569" name="genre">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 20:34:07 UTC</createdTime>
+<generatorID>69D46FAB-2FC7-CFD9-72BD-E431C3A33BAD</generatorID>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="idGenre" id="5F529CB7-FAB1-1897-F162-3A168A9DE5AF">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 20:34:07 UTC</createdTime>
+<generatorID>8030453F-5D36-AF46-E60A-0071873CE870</generatorID>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nom" id="177D44B0-1ACA-EF21-D862-D95510F66B5D">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 20:34:07 UTC</createdTime>
+<generatorID>CDEA3561-72A7-E6A7-C8EC-80B94BAC491A</generatorID>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>64 CHAR</dataTypeSize>
+<ownDataTypeParameters>64 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="D81CE056-1750-5F8C-2DAF-5C3887227AA2" name="genre_PK">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 20:34:07 UTC</createdTime>
+<generatorID>A6ADDD85-03D3-B136-BBEC-6EC6D976173B</generatorID>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5F529CB7-FAB1-1897-F162-3A168A9DE5AF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

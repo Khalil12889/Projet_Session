@@ -1,0 +1,59 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="8665ED72-D3F4-1E79-BA9E-D2467FF3DC2B" name="session">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 17:38:12 UTC</createdTime>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<engineerTo>
+<item key="C4B2975E-1AC5-621C-CA5F-E2B2206629CC" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="idSession" id="D5FC3D1B-23A3-8D61-3FFB-4ABA39D35900">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 17:38:38 UTC</createdTime>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<engineerTo>
+<item key="C4B2975E-1AC5-621C-CA5F-E2B2206629CC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="idUtilisateur" id="83FB536E-3278-1233-9B8F-1FEB5DC1314D">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 17:42:26 UTC</createdTime>
+<generatorID>24F13D6D-D65E-4C2E-10D3-C0062E508977</generatorID>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<engineerTo>
+<item key="C4B2975E-1AC5-621C-CA5F-E2B2206629CC" value="true"/>
+</engineerTo>
+<referedAttribute>217DB5FE-22C9-ABAC-6ED1-5C53E3B98F66</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="89E2BDF0-8D92-334B-CC96-D2A0AB7762E6" name="Session PK">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 17:38:53 UTC</createdTime>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<engineerTo>
+<item key="C4B2975E-1AC5-621C-CA5F-E2B2206629CC" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>D5FC3D1B-23A3-8D61-3FFB-4ABA39D35900</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

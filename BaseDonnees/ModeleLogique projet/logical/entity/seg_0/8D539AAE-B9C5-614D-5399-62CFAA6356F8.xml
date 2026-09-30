@@ -1,0 +1,72 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="8D539AAE-B9C5-614D-5399-62CFAA6356F8" name="role">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 17:39:02 UTC</createdTime>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<engineerTo>
+<item key="C4B2975E-1AC5-621C-CA5F-E2B2206629CC" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="idRole" id="1C80960E-2135-8D2C-E514-A32D6E46A66A">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 17:39:10 UTC</createdTime>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<engineerTo>
+<item key="C4B2975E-1AC5-621C-CA5F-E2B2206629CC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nomRole" id="F5EBA9D4-39D2-87F1-963B-14BC1DBD07E6">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 17:39:29 UTC</createdTime>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<engineerTo>
+<item key="C4B2975E-1AC5-621C-CA5F-E2B2206629CC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>64</dataTypeSize>
+<ownDataTypeParameters>64,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="idUtilisateur" id="9B2212B1-B839-5160-DCE0-30B319A99088">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 17:42:59 UTC</createdTime>
+<generatorID>E2FFF678-DFA8-3EF5-E2D4-5332DE51CDC9</generatorID>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<engineerTo>
+<item key="C4B2975E-1AC5-621C-CA5F-E2B2206629CC" value="true"/>
+</engineerTo>
+<referedAttribute>217DB5FE-22C9-ABAC-6ED1-5C53E3B98F66</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="7A11AB9C-4DE0-4467-F656-55AFD3E2F64F" name="Role PK">
+<createdBy>k</createdBy>
+<createdTime>2026-09-24 17:39:25 UTC</createdTime>
+<ownerDesignName>ModeleLogique projet</ownerDesignName>
+<engineerTo>
+<item key="C4B2975E-1AC5-621C-CA5F-E2B2206629CC" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>1C80960E-2135-8D2C-E514-A32D6E46A66A</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
