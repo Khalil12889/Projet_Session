@@ -1,0 +1,349 @@
+
+TO_CHAR(SYSDATE,
+----------------
+2025-10-25 14:14
+
+_____________________________________________________________________________
+User has all required privileges, installation will continue.
+_____________________________________________________________________________
+
+
+PL/SQL procedure successfully completed.
+
+tables/logger_logs.sql
+
+PL/SQL procedure successfully completed.
+
+
+PL/SQL procedure successfully completed.
+
+tables/logger_prefs.sql
+
+PL/SQL procedure successfully completed.
+
+
+Trigger BIU_LOGGER_PREFS compiled
+
+
+Errors for TRIGGER BIU_LOGGER_PREFS:
+
+LINE/COL ERROR
+-------- ----------------------------------------------------------
+6/5      PLS-00049: bad bind variable 'NEW.PREF_TYPE'
+6/29     PLS-00049: bad bind variable 'NEW.PREF_TYPE'
+9/11     PLS-00049: bad bind variable 'NEW.PREF_TYPE'
+19/13    PLS-00049: bad bind variable 'NEW.PREF_TYPE'
+30/13    PLS-00049: bad bind variable 'NEW.PREF_TYPE'
+40/13    PLS-00049: bad bind variable 'NEW.PREF_TYPE'
+
+Trigger BIU_LOGGER_PREFS altered.
+
+
+PL/SQL procedure successfully completed.
+
+
+PL/SQL procedure successfully completed.
+
+
+PL/SQL procedure successfully completed.
+
+
+PL/SQL procedure successfully completed.
+
+
+Trigger BIU_LOGGER_PREFS altered.
+
+tables/logger_logs_apex_items.sql
+
+PL/SQL procedure successfully completed.
+
+
+Trigger BIU_LOGGER_APEX_ITEMS compiled
+
+tables/logger_prefs_by_client_id.sql
+
+PL/SQL procedure successfully completed.
+
+jobs/logger_purge_job.sql
+
+PL/SQL procedure successfully completed.
+
+jobs/logger_unset_prefs_by_client.sql
+
+PL/SQL procedure successfully completed.
+
+views/logger_logs_5_min.sql
+
+View LOGGER_LOGS_5_MIN created.
+
+views/logger_logs_60_min.sql
+
+View LOGGER_LOGS_60_MIN created.
+
+views/logger_logs_terse.sql
+Warning: View created with compilation errors.
+packages/logger.pks
+
+Package LOGGER compiled
+
+packages/logger.pkb
+
+Package Body LOGGER compiled
+
+Recompile biu_logger_prefs after logger.pkb
+
+Trigger BIU_LOGGER_PREFS altered.
+
+contexts/logger_context.sql
+
+PL/SQL procedure successfully completed.
+
+procedures/logger_configure.plb
+
+Procedure LOGGER_CONFIGURE compiled
+
+install/post_install_configuration.sql
+Calling logger_configure
+
+PL/SQL procedure successfully completed.
+
+Setting Logger Level
+
+PL/SQL procedure successfully completed.
+
+
+*************************************************
+Now executing LOGGER.STATUS...
+
+Project Home Page        : https://github.com/oraopensource/logger/
+Logger Version           : 3.1.1
+Debug Level              : DEBUG
+Capture Call Stack       : TRUE
+Protect Admin Procedures : TRUE
+APEX Tracing             : Disabled
+SCN Capture              : Disabled
+Min. Purge Level         : DEBUG
+Purge Older Than         : 7 days
+Pref by client_id expire : 12 hours
+For all client info see  : logger_prefs_by_client_id
+
+
+PL/SQL procedure successfully completed.
+
+*************************************************
+
+PL/SQL procedure successfully completed.
+
+
+View LOGGER_LOGS_TERSE altered.
+
+
+Table "COURS" created.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+INDEX "SYS_C0012917" created.
+
+
+Sequence COURS_ID_COURS_SEQ created.
+
+
+Trigger COURS_ID_COURS_TRG compiled
+
+No errors.
+
+Trigger "COURS_ID_COURS_TRG" altered.
+
+
+Table "COURS" altered.
+
+
+Table "COURS" altered.
+
+Création du package spec cours_tapi.
+
+Package COURS_TAPI compiled
+
+No errors.
+No errors.
+Création du package body cours_tapi.
+
+Package Body COURS_TAPI compiled
+
+No errors.
+No errors.
+Création du package spec de tests test_cours_tapi.
+
+Package TEST_COURS_TAPI compiled
+
+No errors.
+No errors.
+Création du package body de tests test_cours_tapi.
+
+Package Body TEST_COURS_TAPI compiled
+
+No errors.
+No errors.
+
+PL/SQL procedure successfully completed.
+
+Exécution des tests unitaires.
+alltests
+  test_cours_tapi
+    ins_cours normal: insertion d'un cours dans la table des cours [,014 sec]
+    g_reponse_obj {"data":{"type":"cours","id":30,"attributes":{"nomCours":"Programmation PL/SQL","descriptionCours":"Un cours vraiment super","credit":12}},"meta":{"status":"success","statusCode":201}}
+    g_id_cours: 30
+    ins_cours_null: insertion d'un cours dans la table des cours avec un nom null [,046 sec] (FAILED - 1)
+    g_reponse_obj: {"errors":[{"status":"400","title":"Nom du cours requis","detail":"Erreur nom_cours null lors de l insertion du cours ORA-01400","code":"-1400","meta":{"timestamp":"2025-10-12T14:14:16"}}]}
+    l_status_code: -1400
+    get_cours normal: extraction du cours inséré dans la table des cours [,005 sec] (FAILED - 2)
+    g_reponse_obj: {"errors":[{"status":"500","title":"Erreur système","detail":"Erreur OTHERS lors de la récupération du cours","code":"100","meta":{"timestamp":"2025-10-12T14:14:16"}}]}
+    l_id_cours: 
+    get_cours_inexistant: extraction du cours non présent dans la table des cours [,002 sec]
+    g_reponse_obj: {"errors":[{"status":"404","title":"Cours non trouvé","detail":"Aucun cours trouvé pour cette recherche","code":"-20001","meta":{"timestamp":"2025-10-12T14:14:16"}}]}
+    upd_cours: modification du cours inséré dans la table des cours [,002 sec]
+    g_reponse_obj {"data":{"type":"cours","id":1,"attributes":{"nomCours":"Programmation python","descriptionCours":"Un cours super","credit":99}},"meta":{"status":"success","statusCode":200}}
+    l_id_cours_ret: 1
+    upd_cours_inexistant: modification du cours inséré non présent dans la table des cours [,002 sec] (FAILED - 3)
+    g_reponse_obj {"errors":[{"status":"404","title":"Cours non trouvé","detail":"Erreur id inexistant -1 lors de la maj du cours","code":"100","meta":{"timestamp":"2025-10-12T14:14:16"}}]}
+    l_status_code: 100
+    del_cours normal: effacement du cours inséré dans la table des cours [,002 sec]
+    g_reponse_obj: {"data":{"type":"cours","id":1},"meta":{"status":"success","statusCode":200}}
+    l_id_cours_ret: 1
+    del_cours_inexistant: effacement du cours inexistant dans la table des cours [,003 sec] (FAILED - 4)
+    g_reponse_obj: {"errors":[{"status":"404","title":"Cours non trouvé","detail":"Erreur id inexistant -1 lors de l effacement du cours","code":"-2","meta":{"timestamp":"2025-10-12T14:14:16"}}]}
+    l_status_code: -2
+ 
+Failures:
+ 
+  1) ins_cours_null
+      Actual (number) cannot be compared to Expected (varchar2) using matcher 'equal'.
+      at "COURS.TEST_COURS_TAPI.INS_COURS_NULL", line 44 ut.expect(l_status_code).to_equal('-1400');
+       
+  2) get_cours
+      Actual: NULL (number) was expected to equal: 1 (number)
+      at "COURS.TEST_COURS_TAPI.GET_COURS", line 146 ut.expect(l_id_cours).to_equal(l_expected);
+       
+  3) upd_cours_inexistant
+      Actual (number) cannot be compared to Expected (varchar2) using matcher 'equal'.
+      at "COURS.TEST_COURS_TAPI.UPD_COURS_INEXISTANT", line 92 ut.expect(l_status_code).to_equal('-1403');
+       
+  4) del_cours_inexistant
+      Actual (number) cannot be compared to Expected (varchar2) using matcher 'equal'.
+      at "COURS.TEST_COURS_TAPI.DEL_COURS_INEXISTANT", line 128 ut.expect(l_status_code).to_equal('-2');
+       
+Finished in ,080075 seconds
+8 tests, 4 failed, 0 errored, 0 disabled, 0 warning(s)
+ 
+
+
+PL/SQL procedure successfully completed.
+
+No errors.
+
+        ID LOG_DATE         TEXTE                SCOPE                EXTRA_TEXTE                                                                     
+---------- ---------------- -------------------- -------------------- --------------------------------------------------------------------------------
+        19 2025-10-25 14:14 >>>ERREUR de de type cours_tapi.del_cours  Parameters ***                                                                 
+                                                                                                                                                      
+                                                                      p_id_cours: : -                                                                 
+
+        18 2025-10-25 14:14 >>>FIN de la procédu cours_tapi.del_cours  Parameters ***                                                                 
+                                                                                                                                                      
+                                                                      p_id_cours: : -                                                                 
+
+        17 2025-10-25 14:14 >>>DÉBUT de la procé cours_tapi.del_cours  Parameters ***                                                                 
+                                                                                                                                                      
+                                                                      p_id_cours: : -                                                                 
+
+
+        ID LOG_DATE         TEXTE                SCOPE                EXTRA_TEXTE                                                                     
+---------- ---------------- -------------------- -------------------- --------------------------------------------------------------------------------
+        16 2025-10-25 14:14 >>>FIN de la procédu cours_tapi.del_cours  Parameters ***                                                                 
+                                                                                                                                                      
+                                                                      p_id_cours: : 1                                                                 
+
+        15 2025-10-25 14:14 >>>DÉBUT de la procé cours_tapi.del_cours  Parameters ***                                                                 
+                                                                                                                                                      
+                                                                      p_id_cours: : 1                                                                 
+
+        14 2025-10-25 14:14 >>>ERREUR de de type cours_tapi.upd_cours  Parameters ***                                                                 
+                                                                                                                                                      
+
+        ID LOG_DATE         TEXTE                SCOPE                EXTRA_TEXTE                                                                     
+---------- ---------------- -------------------- -------------------- --------------------------------------------------------------------------------
+                                                                      p_id_cours: : -                                                                 
+
+        13 2025-10-25 14:14 >>>DÉBUT de la procé cours_tapi.upd_cours  Parameters ***                                                                 
+                                                                                                                                                      
+                                                                      p_id_cours: : -                                                                 
+
+        12 2025-10-25 14:14 >>>FIN de la procédu cours_tapi.upd_cours  Parameters ***                                                                 
+                                                                                                                                                      
+                                                                      p_id_cours: : 1                                                                 
+
+        11 2025-10-25 14:14 >>>DÉBUT de la procé cours_tapi.upd_cours  Parameters ***                                                                 
+
+        ID LOG_DATE         TEXTE                SCOPE                EXTRA_TEXTE                                                                     
+---------- ---------------- -------------------- -------------------- --------------------------------------------------------------------------------
+                                                                                                                                                      
+                                                                      p_id_cours: : 1                                                                 
+
+        10 2025-10-25 14:14 >>>ERREUR de de type cours_tapi.get_cours  Parameters ***                                                                 
+                                                                                                                                                      
+                                                                      p_id_cours: : -                                                                 
+
+         9 2025-10-25 14:14 >>>DÉBUT de la procé cours_tapi.get_cours  Parameters ***                                                                 
+                                                                                                                                                      
+                                                                      p_id_cours: : -                                                                 
+
+
+        ID LOG_DATE         TEXTE                SCOPE                EXTRA_TEXTE                                                                     
+---------- ---------------- -------------------- -------------------- --------------------------------------------------------------------------------
+         8 2025-10-25 14:14 >>>ERREUR de de type cours_tapi.get_cours  Parameters ***                                                                 
+                                                                                                                                                      
+                                                                      p_id_cours: : 1                                                                 
+
+         7 2025-10-25 14:14 >>>DÉBUT de la procé cours_tapi.get_cours  Parameters ***                                                                 
+                                                                                                                                                      
+                                                                      p_id_cours: : 1                                                                 
+
+         6 2025-10-25 14:14 >>>ERREUR de type ex cours_tapi.ins_cours  Parameters ***                                                                 
+                                                                                                                                                      
+                                                                      p_credit: : 12                                                                  
+
+
+        ID LOG_DATE         TEXTE                SCOPE                EXTRA_TEXTE                                                                     
+---------- ---------------- -------------------- -------------------- --------------------------------------------------------------------------------
+         5 2025-10-25 14:14 >>>DÉBUT de la procé cours_tapi.ins_cours  Parameters ***                                                                 
+                                                                                                                                                      
+                                                                      p_credit: : 12                                                                  
+
+         4 2025-10-25 14:14 >>>FIN de la procédu cours_tapi.ins_cours  Parameters ***                                                                 
+                                                                                                                                                      
+                                                                      p_credit: : 12                                                                  
+
+         3 2025-10-25 14:14 >>>DÉBUT de la procé cours_tapi.ins_cours  Parameters ***                                                                 
+                                                                                                                                                      
+
+        ID LOG_DATE         TEXTE                SCOPE                EXTRA_TEXTE                                                                     
+---------- ---------------- -------------------- -------------------- --------------------------------------------------------------------------------
+                                                                      p_credit: : 12                                                                  
+
+         2 2025-10-25 14:14 Logger version 3.1.1                                                                                                      
+
+18 rows selected. 
+

@@ -1,0 +1,33 @@
+---
+# 🚀 Installation de l'environnement **Cours**
+---
+
+Bienvenue ! Ce document vous guide pour installer et utiliser l'environnement de gestion des cours. Suivez les étapes ci-dessous 👇
+
+## 📦 Scripts principaux
+
+- **raccourci_sys.sql** : Liste de commandes à effectuer comme `SYS` dans `freepdb1` ou `orclpdb1` (19c)
+- **raccourci_cours.sql** : Liste de commandes à effectuer comme `cours` dans `freepdb1` ou `orclpdb1` (19c) pour créer l'environnement et exécuter les tests
+
+## 👤 Création de l'utilisateur
+
+- **creer_cours.sql** : Script de création d'un nouvel utilisateur `cours`. À exécuter connecté comme `SYS` (voir `raccourci_sys.sql`)
+
+> ⚠️ Pour tous les autres scripts, soyez connecté comme `cours` et assurez-vous que les `@@` sont présents !
+
+## 🛠️ Mise en place de l'environnement
+
+- **creer_env.sql** : Script qui effectue l'appel de tous les autres scripts. À lancer avec `@@creer_env.sql`
+- **cours.sql** : Script de création et de peuplement de la table `cours`
+- **cours_tapi.pks** : Script de création du package spec `cours_tapi`
+- **cours_tapi.pkb** : Script de création du package body `cours_tapi`
+- **test_cours_tap.pks** : Script de création du package spec de tests `test_cours_tap`
+- **test_cours_tap.pkb** : Script de création du package body de tests `test_cours_tap`
+- **exec_tests.sql** : Script d'exécution des tests unitaires
+
+## 📝 Documentation
+
+- **build-doc.sh** : Script de l'OS pour générer la documentation Markdown et le site HTML
+
+---
+✨ Bon travail et bonne exploration !
