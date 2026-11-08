@@ -1,0 +1,37 @@
+alltests
+  utilisateur_api_test
+    test_ajouter_utilisateur : ajout d'un utilisateur [,009 sec]
+    l_reponse {"data":{"type":"utilisateur","id":94,"attributes":{"nomUtilisateur":"employerTest"}},"meta":{"status":"success","statusCode":201}}
+    l_id_utilisateur 94
+    test_ajouter_utilisateur_valeur_null : ajout d'un utilisateur avec une valuer null [,004 sec]
+    l_reponse {"errors":[{"status":"400","title":"Champ obligatoire manquant","detail":"Erreur lors de l insertion d un utilisateur : valeur NULL interdite ORA-01400","code":"-1400","meta":{"timestamp":"2026-11-08T22:59:38"}}]}
+    l_status 400
+    test_retourner_utilisateur : recuperation d'un utilisateur [,002 sec]
+    l_reponse: {"data":[{"type":"utilisateur","id":1,"attributes":{"nomUtilisateur":"employe1"}}],"meta":{"status":"success","statusCode":200,"pagination":{"offset":0,"limit":4}}}
+    l_id_utilisateur: 1
+    test_retourner_utilisateur_non_existant : recuperation d'un utilisateur avec un id non existant [,001 sec]
+    l_reponse: {"errors":[{"status":"404","title":"Utilisateur non trouvé","detail":"Aucun utilisateur trouvé pour cette recherche","code":"-20001","meta":{"timestamp":"2026-11-08T22:59:38"}}]}
+    l_status_erreur 404
+    test_supprimer_utilisateur : suppression d'un utilisateur [,002 sec]
+    l_reponse: {"data":{"type":"utilisateur","id":96},"meta":{"status":"success","statusCode":200}}
+    l_id_supprime 96
+    test_supprimer_utilisateur_avec_id_null : suppression d'un utilisateur avec un id null [,001 sec]
+    l_reponse: {"errors":[{"status":"400","title":"ID utilisateur requis","detail":"Erreur id null lors de l effacement de l utilisateur","code":"-1","meta":{"timestamp":"2026-11-08T22:59:38"}}]}
+    l_status 400
+    test_supprimer_utilisateur_avec_id_null_inexistant; : suppression d'un utilisateur avec un id inexistant [,001 sec]
+    l_reponse: {"errors":[{"status":"404","title":"Utilisateur non trouvé","detail":"Erreur id inexistant -999 lors de l effacement de l utilisateur","code":"-2","meta":{"timestamp":"2026-11-08T22:59:38"}}]}
+    l_status 404
+    test_modifier_utilisateur : modification d'un utilisateur [,002 sec]
+    l_reponse: {"data":{"type":"utilisateur","id":97,"attributes":{"nomUtilisateur":"Asupprier2"}},"meta":{"status":"success","statusCode":200}}
+    l_modification Asupprier2
+    test_modifier_utilisateur_avec_id_null : modification d'un utilisateur avec un id null [,001 sec]
+    l_reponse: {"errors":[{"status":"400","title":"ID de l utilisateur requis","detail":"Erreur id est null lors de la maj de l utilisateur","code":"-1","meta":{"timestamp":"2026-11-08T22:59:38"}}]}
+    l_status 400
+    test_modifier_utilisateur_avec_id_inexistant : modification d'un utilisateur avec un id inexistant [,001 sec]
+    l_reponse: {"errors":[{"status":"404","title":"utilisateur non trouvé","detail":"Erreur id inexistant -999 lors de la maj de l utilisateur","code":"100","meta":{"timestamp":"2026-11-08T22:59:38"}}]}
+    l_status 404
+ 
+Finished in ,030354 seconds
+10 tests, 0 failed, 0 errored, 0 disabled, 0 warning(s)
+ 
+
