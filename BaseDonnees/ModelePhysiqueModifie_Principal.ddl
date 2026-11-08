@@ -133,13 +133,14 @@ CREATE TABLE emprunt (
     datedebut                 DATE NOT NULL,
     dateretourprevue          DATE NOT NULL,
     dateretour                DATE,
-    enretard                  NUMBER NOT NULL,
+    enretard                  NUMBER NOT NULL,  
     utilisateur_idutilisateur INTEGER NOT NULL,
     
     CONSTRAINT emprunt_livre_fk FOREIGN KEY ( livre_idlivre ) REFERENCES livre ( idlivre ) ON DELETE CASCADE,
     CONSTRAINT emprunt_membre_fk FOREIGN KEY ( membre_idmembre ) REFERENCES membre ( idmembre ) ON DELETE CASCADE,
     CONSTRAINT emprunt_utilisateur_fk FOREIGN KEY ( utilisateur_idutilisateur ) REFERENCES utilisateur ( idutilisateur ) ON DELETE CASCADE
 );
+// enretard => 0:false  1:true
 
 
 //Partie5:peuplement de la base
