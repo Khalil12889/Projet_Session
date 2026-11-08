@@ -1,0 +1,28 @@
+Exécution des tests unitaires. Zakaria Harcha pour table emprunt
+alltests
+  test_emprunt_tapi
+    retourner normal: consultation d'un emprunt [.003 sec]
+    g_reponse_obj: {"data":[{"type":"emprunt","id":1,"attributes":{"titreLivre":"T2","nomMembre":"membre1 A","nomUtilisateur":"employe1","dateDebut":"2026-09-25T00:00:00","dateRetourPruvue":"2026-10-02T00:00:00","dateRetour":null,"enRetard":0}}],"meta":{"status":"success","statusCode":200}}
+    retourner_inexistant: consultation d'un emprunt inexistant [.001 sec]
+    g_reponse_obj: {"errors":[{"status":"404","title":"Emprunt non trouve","detail":"Aucun cours correspondant a cet id","code":"-20002","meta":{"timestamp":"2026-11-08T21:51:46"}}]}
+    supprimer normal: suppression d'un emprunt [.002 sec]
+    g_reponse_obj: {"data":{"type":"emprunt","id":1},"meta":{"status":"success","statusCode":200}}
+    supprimer_inexistant: suppression d'un emprunt inexistant [.002 sec]
+    g_reponse_obj: {"errors":[{"status":"400","title":"Emprunt non trouve","detail":"Erreur id inexistant dans la table","code":"-2","meta":{"timestamp":"2026-11-08T21:51:46"}}]}
+    ajouter normal: insertion d'un emprunt [.002 sec]
+    g_reponse_obj: {"type":"emprunt","id":22,"attributes":{"titreLivre":"T2","nomMembre":"A","nomUtilisateur":"employe1","dateDebut":"2026-11-08T21:51:46","dateRetourPruvue":"2026-11-22T21:51:46","enRetard":0},"meta":{"status":"success","statusCode":201}}
+    ajouter_null: insertion avec des valeurs null [.002 sec]
+    g_reponse_obj: {"errors":[{"status":"400","title":"Entree nulle","detail":"Erreur une ou plusieurs entrees obligatoires sont nulles","code":"-18","meta":{"timestamp":"2026-11-08T21:51:46"}}]}
+    modifier normal: modification d'un emprunt [.002 sec]
+    g_reponse_obj: {"data":{"type":"emprunt","id":1,"attributes":{"titreLivre":null,"nomMembre":null,"nomUtilisateur":null,"dateRetourPruvue":"2030-01-10T00:00:00","dateRetour":null,"enRetard":null}},"meta":{"status":"success","statusCode":200}}
+    modifier_inexistant: modification d'un emprunt inexistant [.002 sec]
+    g_reponse_obj: {"errors":[{"status":"404","title":"Id non valide","detail":"l un des ids entres (non null) n est pas valide","code":"-116","meta":{"timestamp":"2026-11-08T21:51:46"}}]}
+ 
+Finished in .018445 seconds
+8 tests, 0 failed, 0 errored, 0 disabled, 0 warning(s)
+ 
+
+
+PL/SQL procedure successfully completed.
+
+No errors.
