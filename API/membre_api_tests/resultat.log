@@ -1,0 +1,79 @@
+alltests
+  test_membre_tapi
+    get_membre normal: extraction d'un membre [,244 sec]
+    g_reponse_obj: {"data":[{"type":"membre","id":21,"attributes":{"nom":"TestUnitaire","prenom":"Marie","numeroTelephone":"5145551234","adresseCourriel":"test.unitaire@example.com","dateAbonnement":"2026-11-08","status_idStatus":1,"adresse_idAdresse":1}}],"meta":{"status":"success","statusCode":200,"pagination":{"offset":0,"limit":2}}}
+    l_id_membre: 21
+ 
+Finished in ,264801 seconds
+1 tests, 0 failed, 0 errored, 0 disabled, 0 warning(s)
+ 
+
+alltests
+  test_membre_tapi
+    get_membre_inexistant: extraction d'un membre inexistant [,047 sec]
+    g_reponse_obj: {"errors":[{"status":"404","title":"Membre non trouve","detail":"Aucun membre pour cette recherche","code":"-20001"}]}
+ 
+Finished in ,053995 seconds
+1 tests, 0 failed, 0 errored, 0 disabled, 0 warning(s)
+ 
+
+alltests
+  test_membre_tapi
+    ins_membre normal: insertion d'un membre [,056 sec]
+    g_reponse_obj: {"data":{"type":"membre","id":22,"attributes":{"nom":"Tremblay","prenom":"Marie","numeroTelephone":"5145551234","adresseCourriel":"marie@test.ca","dateAbonnement":"2026-11-08","status_idStatus":1,"adresse_idAdresse":1}},"meta":{"status":"success","statusCode":201}}
+    g_id_membre: 22
+ 
+Finished in ,0629 seconds
+1 tests, 0 failed, 0 errored, 0 disabled, 0 warning(s)
+ 
+
+alltests
+  test_membre_tapi
+    ins_membre_null: insertion d'un membre avec un nom null [,021 sec]
+    g_reponse_obj: {"errors":[{"status":"400","title":"Champ obligatoire manquant","detail":"Une valeur NULL est interdite","code":"-1400"}]}
+    l_status_code: -1400
+ 
+Finished in ,028937 seconds
+1 tests, 0 failed, 0 errored, 0 disabled, 0 warning(s)
+ 
+
+alltests
+  test_membre_tapi
+    upd_membre normal: modification d'un membre [,038 sec]
+    g_reponse_obj: {"data":{"type":"membre","id":21,"attributes":{"nom":"Gagnon","prenom":"Marie","numeroTelephone":"5145551234","adresseCourriel":"test.unitaire@example.com","dateAbonnement":"2026-11-08","status_idStatus":1,"adresse_idAdresse":1}},"meta":{"status":"success","statusCode":200}}
+    l_id_membre_ret: 21
+ 
+Finished in ,04458 seconds
+1 tests, 0 failed, 0 errored, 0 disabled, 0 warning(s)
+ 
+
+alltests
+  test_membre_tapi
+    upd_membre_inexistant: modification d'un membre inexistant [,017 sec]
+    g_reponse_obj: {"errors":[{"status":"404","title":"Membre non trouve","detail":"ID inexistant : -1","code":"-2"}]}
+    l_status_code: -2
+ 
+Finished in ,027314 seconds
+1 tests, 0 failed, 0 errored, 0 disabled, 0 warning(s)
+ 
+
+alltests
+  test_membre_tapi
+    del_membre_inexistant: suppression d'un membre inexistant [,041 sec]
+    g_reponse_obj: {"errors":[{"status":"404","title":"Membre non trouve","detail":"ID inexistant : -1","code":"-2"}]}
+    l_status_code: -2
+ 
+Finished in ,046385 seconds
+1 tests, 0 failed, 0 errored, 0 disabled, 0 warning(s)
+ 
+
+alltests
+  test_membre_tapi
+    del_membre normal: suppression d'un membre [,048 sec]
+    g_reponse_obj: {"data":{"type":"membre","id":21},"meta":{"status":"success","statusCode":200}}
+    l_id_membre_ret: 21
+ 
+Finished in ,059409 seconds
+1 tests, 0 failed, 0 errored, 0 disabled, 0 warning(s)
+ 
+
