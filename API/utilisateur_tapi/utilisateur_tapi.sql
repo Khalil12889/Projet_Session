@@ -9,6 +9,7 @@ create or replace PACKAGE utilisateur_api AS
 
      FUNCTION retourner_utilisateur(
         p_idutilisateur IN utilisateur.idutilisateur%TYPE,
+        p_nomutilisateur IN utilisateur.nomutilisateur%TYPE DEFAULT NULL,
         p_limite IN NUMBER DEFAULT 5,
         p_debut IN NUMBER DEFAULT 0,
         p_taille IN NUMBER DEFAULT 4
@@ -28,3 +29,5 @@ create or replace PACKAGE utilisateur_api AS
     )RETURN VARCHAR2;
 
 END utilisateur_api;
+/
+SHOW ERRORS;

@@ -3,7 +3,23 @@ create or replace PACKAGE BODY utilisateur_api AS
 gc_scope_prefix CONSTANT VARCHAR2(31) := LOWER($$PLSQL_UNIT) || '.';
 
 
---DEBUT DE LA FONCTION INSERT
+/**
+ * @author       Roxane Maniga
+ * Description   Fonction pour insérer un utilisateur
+ *
+ * @version      1.0.0
+ *
+ * @example      l_resultat := utilisateur_api.ajouter_utilisateur('employe1', 'emp1', 'N');
+ *
+ * @issue        n/a
+ * @created      2026-11-05
+ * @param        p_nomutilisateur   nom de l'utilisateur
+ * @param        p_motdepasse       mot de passe de l'utilisateur
+ * @param        p_test             paramètre pour ne pas sauvegarder les tests, si 'N' alors commit
+ * @return       l_reponse          objet JSON avec un statut et la clé primaire de l'utilisateur créé
+ * @exception    ex_valeurutilisateur_null   si le nom ou le mot de passe de l'utilisateur est null, erreur -1400
+ * @exception    OTHERS             autre exception non traitée, retournée dans un objet JSON
+ */
 
 FUNCTION ajouter_utilisateur(
         p_nomutilisateur utilisateur.nomutilisateur%TYPE,
@@ -94,10 +110,32 @@ FUNCTION ajouter_utilisateur(
 
     END ajouter_utilisateur;
 
---DEBUT DE LA FONCTION SELECT
+
+
+/**
+ * @author       Roxane Maniga
+ * Description   Fonction pour retourner les informations d'un ou plusieurs utilisateurs
+ *
+ * @version      1.0.0
+ *
+ * @example      l_resultat := utilisateur_api.retourner_utilisateur(1);
+ *
+ * @issue        n/a
+ *
+ * @created      2026-11-05
+ * @param        p_idutilisateur    identifiant de l'utilisateur, si null retourne tous les utilisateurs
+ * @param        p_limite           nombre maximum de rangées à retourner
+ * @param        p_debut            rangée de départ
+ * @param        p_taille           nombre de rangées à retourner
+ * @return       l_reponse          tableau JSON contenant les informations des utilisateurs
+ * @exception    ex_aucun_utilisateur   si aucun utilisateur ne correspond à la recherche, code d'erreur -20001
+ * @exception    OTHERS             autre exception non traitée, retournée dans un objet JSON
+ */
+
 
 FUNCTION retourner_utilisateur( 
         p_idutilisateur IN utilisateur.idutilisateur%TYPE,
+        p_nomutilisateur IN utilisateur.nomutilisateur%TYPE DEFAULT NULL,
         p_limite IN NUMBER DEFAULT 5,
         p_debut IN NUMBER DEFAULT 0,
         p_taille IN NUMBER DEFAULT 4 )
@@ -117,6 +155,7 @@ ex_aucun_utilisateur EXCEPTION;
 BEGIN
 
 logger.append_param(l_params, 'p_idutilisateur: ', p_idutilisateur);
+logger.append_param(l_params, 'p_nomutilisateur: ', p_nomutilisateur);
     logger.log('>>>DÉBUT de la procédure', l_scope, NULL, l_params);
 
 
@@ -130,6 +169,7 @@ FROM (
     SELECT idutilisateur, nomutilisateur
     FROM utilisateur
     WHERE idutilisateur = COALESCE(p_idutilisateur, idutilisateur)
+    AND nomutilisateur = COALESCE(p_nomutilisateur, nomutilisateur)
     ORDER BY idutilisateur
     OFFSET p_debut ROWS
     FETCH NEXT CASE WHEN p_limite > 0 
@@ -161,7 +201,7 @@ RETURN l_reponse;
 
 EXCEPTION
     WHEN ex_aucun_utilisateur THEN
-        ROLLBACK;
+    
         logger.log_error( '>>>ERREUR de type ex_aucun_utilisateur', l_scope,NULL,l_params);
 
 l_reponse := JSON_OBJECT(
@@ -177,7 +217,7 @@ l_reponse := JSON_OBJECT(
 
 RETURN l_reponse;
  WHEN OTHERS THEN
-            ROLLBACK;
+         
             l_error_mess := sqlerrm;
             l_error_code := sqlcode;
             logger.log_error('>>>ERREUR de type OTHERS ', l_scope, null, l_params);
@@ -200,7 +240,27 @@ RETURN l_reponse;
 
 END retourner_utilisateur;
 
---DEBUT DE LA FONCTION DELETE
+
+
+/**
+ * @author       Roxane Maniga
+ * Description   Fonction pour supprimer un utilisateur
+ *
+ * @version      1.0.0
+ *
+ * @example      l_resultat := utilisateur_api.supprimer_utilisateur(1, 'N');
+ *
+ * @issue        n/a
+ *
+ * @created      2026-11-05
+ * @param        p_idutilisateur    identifiant de l'utilisateur à supprimer
+ * @param        p_test             paramètre pour ne pas sauvegarder les tests, si 'N' alors commit
+ * @return       l_reponse          objet JSON avec un statut et la clé primaire de l'utilisateur supprimé
+ * @exception    ex_id_is_null      si l'identifiant est null, code d'erreur -1
+ * @exception    ex_id_inexistant   si l'utilisateur est inexistant, code d'erreur -2
+ * @exception    OTHERS             autre exception non traitée, retournée dans un objet JSON
+ */
+
 FUNCTION supprimer_utilisateur(
     p_idutilisateur IN utilisateur.idutilisateur%TYPE,
     p_test VARCHAR2 DEFAULT 'N')
@@ -294,7 +354,30 @@ BEGIN
 END supprimer_utilisateur;
 
 
---DEBUT DE LA FONCTION UPDATE
+
+
+/**
+ * @author       Roxane Maniga
+ * Description   Fonction pour mettre à jour un utilisateur.
+ *               Cette fonction ne permet pas de mettre une colonne à null.
+ *
+ * @version      1.0.0
+ *
+ * @example      l_resultat := utilisateur_api.modifier_utilisateur(1, 'employe_modifie', NULL, 'N');
+ *
+ * @issue        n/a
+ *
+ * @created      2026-11-05
+ * @param        p_idutilisateur    identifiant de l'utilisateur à modifier
+ * @param        p_nomutilisateur   nouveau nom de l'utilisateur
+ * @param        p_motdepasse       nouveau mot de passe de l'utilisateur
+ * @param        p_test             paramètre pour ne pas sauvegarder les tests, si 'N' alors commit
+ * @return       l_reponse          objet JSON avec un statut et la clé primaire de l'utilisateur modifié
+ * @exception    ex_id_is_null      si l'identifiant est null, code d'erreur -1
+ * @exception    NO_DATA_FOUND      si l'utilisateur est inexistant, erreur 404
+ * @exception    OTHERS             autre exception non traitée, retournée dans un objet JSON
+ */
+
 
 FUNCTION modifier_utilisateur(
     p_idutilisateur utilisateur.idutilisateur%TYPE,
@@ -402,3 +485,5 @@ END modifier_utilisateur;
 
 
 END utilisateur_api;
+/
+SHOW ERRORS;

@@ -27,5 +27,14 @@ create or replace PACKAGE membre_api_tests IS
 
     --%test(del_membre_inexistant: suppression d'un membre inexistant)
     PROCEDURE del_membre_inexistant;
+    
+    --%beforeeach
+    PROCEDURE setup;
+
+    --%aftereach
+    PROCEDURE teardown;
+
 
 END membre_api_tests;
+/
+SHOW ERRORS;

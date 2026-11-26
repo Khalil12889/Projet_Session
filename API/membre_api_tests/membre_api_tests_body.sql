@@ -3,8 +3,41 @@ create or replace PACKAGE BODY membre_api_tests IS
     g_id_membre NUMBER := 0;
     g_reponse_obj VARCHAR2(4000);
     g_mode_test CHAR(1) := 'O';
+    
+    
+    /**
+    * @author       Roxane Maniga
+    * Description: procedure setup et teardown pour creer un utilisateur a chaque methode
+    */
+   PROCEDURE setup IS
+   BEGIN
+    g_reponse_obj := membre_tapi.ins_membre(
+        NULL,
+        'Test',
+        'Membre',
+        '5145551234',
+        'test@test.ca',
+        SYSDATE,
+        1,
+        1,
+        g_mode_test
+    );
 
-    --procedure du test d insertion d un membre ins_membre
+    g_id_membre := JSON_VALUE(g_reponse_obj, '$.data.id');
+
+   END setup;
+
+
+   PROCEDURE teardown IS
+   BEGIN
+    ROLLBACK;
+   END teardown;
+    
+
+   /**
+    * @author       Roxane Maniga
+    * Description:procedure du test d insertion d un membre ins_membre 
+    */
 
     PROCEDURE ins_membre IS
         l_nom                membre.nom%TYPE;
@@ -50,7 +83,9 @@ create or replace PACKAGE BODY membre_api_tests IS
 
     END ins_membre;
 
---procedure du test dinsertion dun membre null ins_membre_null
+    /**
+    * @author       Roxane Maniga
+    * Description:procedure du test dinsertion dun membre null ins_membre_null */
 
    PROCEDURE ins_membre_null IS
         l_nom                membre.nom%TYPE;
@@ -97,15 +132,17 @@ create or replace PACKAGE BODY membre_api_tests IS
 
     END ins_membre_null;
 
---procedure du test de recuperation d'un membre existant get_membre
+    /**
+    * @author       Roxane Maniga
+    * Description: procedure du test de recuperation d'un membre existant get_membre */
 
    PROCEDURE get_membre IS
         l_expected NUMBER;
         l_id_membre membre.idMembre%TYPE;
     BEGIN
         -- arrange
-        l_expected := 21;
-        l_id_membre := 21;
+        l_expected := g_id_membre;
+        l_id_membre := g_id_membre;
 
 
         -- act
@@ -121,7 +158,12 @@ create or replace PACKAGE BODY membre_api_tests IS
 
     END get_membre;
 
---procedure du test de recuperation d'un membre inexistant get_membre_inexistant   
+    /**
+    * @author       Roxane Maniga
+    * Description:procedure du test de recuperation d'un membre inexistant get_membre_inexistant   
+    */
+    
+    
     PROCEDURE get_membre_inexistant IS
         l_id_membre membre.idMembre%TYPE;
     BEGIN
@@ -144,7 +186,10 @@ create or replace PACKAGE BODY membre_api_tests IS
 
     END get_membre_inexistant;
 
---procedure du test de modification des donnees d'un membre existant upd_membre 
+    /**
+    * @author       Roxane Maniga
+    * Description: procedure du test de modification des donnees d'un membre existant upd_membre 
+    */
 
     PROCEDURE upd_membre IS
     l_nom membre.nom%TYPE;
@@ -154,7 +199,7 @@ create or replace PACKAGE BODY membre_api_tests IS
     -- arrange
     l_nom := 'Gagnon';
 
-    l_id_membre := 21;
+    l_id_membre := g_id_membre;
 
     -- act
     g_reponse_obj := membre_tapi.upd_membre(
@@ -174,7 +219,10 @@ create or replace PACKAGE BODY membre_api_tests IS
     END upd_membre;
 
 
---procedure du test de modification des donnees d'un membre inexistant upd_membre_inexistant
+    /**
+    * @author       Roxane Maniga
+    * Description:procedure du test de modification des donnees d'un membre inexistant upd_membre_inexistant
+    */
 
     PROCEDURE upd_membre_inexistant IS
     l_nom membre.nom%TYPE;
@@ -207,14 +255,17 @@ create or replace PACKAGE BODY membre_api_tests IS
 
     END upd_membre_inexistant;
 
---procedure de test de suppression d'un membre existant del_membre
+    /**
+    * @author       Roxane Maniga
+    * Description:procedure de test de suppression d'un membre existant del_membre
+    */
 
     PROCEDURE del_membre IS
     l_id_membre membre.idMembre%TYPE;
     l_id_membre_ret membre.idMembre%TYPE;
     BEGIN
     -- arrange
-    l_id_membre := 21;
+    l_id_membre := g_id_membre;
 
     -- act
     g_reponse_obj := membre_tapi.del_membre(l_id_membre, g_mode_test);
@@ -230,7 +281,9 @@ create or replace PACKAGE BODY membre_api_tests IS
     END del_membre;
 
 
---procedure de test de suppression d'un membre qui nexiste pas del_membre_inexistant
+    /**
+    * @author       Roxane Maniga
+    * Description: procedure de test de suppression d'un membre qui nexiste pas del_membre_inexistant */
 
 
     PROCEDURE del_membre_inexistant IS
@@ -260,3 +313,5 @@ create or replace PACKAGE BODY membre_api_tests IS
 
 
 END membre_api_tests;
+/
+SHOW ERRORS;
