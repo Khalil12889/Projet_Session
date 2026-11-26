@@ -1,4 +1,4 @@
-CREATE OR REPLACE PACKAGE BODY emprunt_tapi AS
+CREATE OR REPLACE PACKAGE BODY emprunt_api AS
     
     gc_scope_prefix CONSTANT VARCHAR2(31) := lower($$plsql_unit) || '.';
     
@@ -7,7 +7,7 @@ CREATE OR REPLACE PACKAGE BODY emprunt_tapi AS
     *
     *@version   1.0
     *
-    * @example      l_resultant := emprunt_tapi.retourner(2);
+    * @example      l_resultant := emprunt_api.retourner(2);
     *
     * @issue        n/a
     *
@@ -15,12 +15,11 @@ CREATE OR REPLACE PACKAGE BODY emprunt_tapi AS
     * @created      2026-11-08
     * @param        p_id_emprunt        id de l'emprunt cherche
     * @return       l_resultat          objet JSON avec l'id de l'emprunt, le titre du livre, le nom du membre, le nom de l'utilisateur, la date de debut, la date de fin prevue, la date de fin et le number indiquant s'il est en retard  
-    * @exception    ex_id_null          si l'id entre est null, retourné dans un objet JSON avec status et code d erreur -20001
     * @exception    no_data_found       si aucun emrunt ne correspond a l'id entre, retourné dans un objet JSON avec status et code d erreur -20002
     * @exception    OTHERS              excepttion autre non traitée, retourné dans un objet JSON avec status et son code d erreur
     */    
 
-    FUNCTION retourner(p_id_emprunt emprunt.idemprunt%Type) RETURN VARCHAR2 AS
+    FUNCTION retourner(p_id_emprunt emprunt.idemprunt%Type DEFAULT NULL, p_limite    IN NUMBER DEFAULT 5, p_debut     IN NUMBER DEFAULT 0, p_taille    IN NUMBER DEFAULT 4) RETURN VARCHAR2 AS
     
              l_scope              logger_logs.scope%type := gc_scope_prefix || 'retourner';
              l_params             logger.tab_param;
@@ -29,47 +28,87 @@ CREATE OR REPLACE PACKAGE BODY emprunt_tapi AS
             l_nom_utilisateur VARCHAR2(100);
             l_tite_livre VARCHAR2(100);
             l_nom_membre VARCHAR2(100);
-            ex_id_null Exception;
+            --ex_id_null Exception;
             l_resultat VARCHAR2(4000);
             l_json_emprunt VARCHAR2(4000);
             l_error_code    VARCHAR2(4000);
+            l_taille        NUMBER;
             
         BEGIN
             
             logger.append_param(l_params, 'p_id_emprunt: ',p_id_emprunt);
+            logger.append_param(l_params, 'p_limite: ',p_limite);
+            logger.append_param(l_params, 'p_debut: ',p_debut);
+            logger.append_param(l_params, 'p_taille: ',p_taille);
             logger.log('>>>DÉBUT de la procédure', l_scope, NULL, l_params);
         
         
+            l_taille := CASE WHEN p_limite > 0
+                            THEN LEAST(p_limite, p_taille)
+                            ELSE p_taille END;
         
-        
-        
-            IF p_id_emprunt IS NULL THEN
-                RAISE ex_id_null;
-            END IF;
+
+
+   --Ancienne version
+
+            -- IF p_id_emprunt IS NULL THEN
+            --     RAISE ex_id_null;
+            -- END IF;
             
             
-            SELECT * INTO rec_emprunt FROM emprunt WHERE idemprunt=p_id_emprunt;
+        --     SELECT * INTO rec_emprunt FROM emprunt WHERE idemprunt=p_id_emprunt;
             
             
-            SELECT nomutilisateur INTO l_nom_utilisateur FROM utilisateur WHERE idutilisateur = rec_emprunt.utilisateur_idutilisateur;
-            SELECT prenom || ' ' || nom INTO l_nom_membre FROM membre WHERE idmembre = rec_emprunt.membre_idmembre;
-            SELECT titre INTO l_tite_livre FROM livre WHERE idlivre = rec_emprunt.livre_idlivre;
+        --     SELECT nomutilisateur INTO l_nom_utilisateur FROM utilisateur WHERE idutilisateur = rec_emprunt.utilisateur_idutilisateur;
+        --     SELECT prenom || ' ' || nom INTO l_nom_membre FROM membre WHERE idmembre = rec_emprunt.membre_idmembre;
+        --     SELECT titre INTO l_tite_livre FROM livre WHERE idlivre = rec_emprunt.livre_idlivre;
             
-           SELECT JSON_ARRAYAGG(
+        --    SELECT JSON_ARRAYAGG(
+        --     JSON_OBJECT(
+        --         'type'  VALUE 'emprunt',
+        --         'id'    VALUE rec_emprunt.idemprunt,
+        --         'attributes' VALUE JSON_OBJECT(
+        --             'titreLivre'        VALUE l_tite_livre,
+        --             'nomMembre'         VALUE l_nom_membre,
+        --             'nomUtilisateur'    VALUE l_nom_utilisateur,
+        --             'dateDebut'         VALUE rec_emprunt.datedebut,
+        --             'dateRetourPruvue'  VALUE rec_emprunt.dateretourprevue,
+        --             'dateRetour'        VALUE rec_emprunt.dateretour,
+        --             'enRetard'          VALUE rec_emprunt.enretard
+        --         )
+        --      )
+        --     ) INTO l_json_emprunt;
+
+
+
+
+
+        SELECT JSON_ARRAYAGG(
             JSON_OBJECT(
                 'type'  VALUE 'emprunt',
-                'id'    VALUE rec_emprunt.idemprunt,
+                'id'    VALUE e.idemprunt,
                 'attributes' VALUE JSON_OBJECT(
-                    'titreLivre'        VALUE l_tite_livre,
-                    'nomMembre'         VALUE l_nom_membre,
-                    'nomUtilisateur'    VALUE l_nom_utilisateur,
-                    'dateDebut'         VALUE rec_emprunt.datedebut,
-                    'dateRetourPruvue'  VALUE rec_emprunt.dateretourprevue,
-                    'dateRetour'        VALUE rec_emprunt.dateretour,
-                    'enRetard'          VALUE rec_emprunt.enretard
+                    'idLivre'        VALUE e.livre_idlivre,
+                    'idMembre'         VALUE e.membre_idmembre,
+                    'idUtilisateur'    VALUE e.utilisateur_idutilisateur,
+                    'dateDebut'         VALUE e.datedebut,
+                    'dateRetourPruvue'  VALUE e.dateretourprevue,
+                    'dateRetour'        VALUE e.dateretour,
+                    'enRetard'          VALUE e.enretard
                 )
-             )
-            ) INTO l_json_emprunt;
+             ) RETURNING VARCHAR2(4000)
+        ) INTO l_json_emprunt
+        FROM (
+            SELECT *
+            FROM emprunt
+            WHERE p_id_emprunt IS NULL OR idemprunt = p_id_emprunt
+            ORDER BY idemprunt
+            OFFSET p_debut ROWS FETCH NEXT l_taille ROWS ONLY
+        ) e;
+
+
+
+
             
             
             l_resultat := JSON_OBJECT(
@@ -87,26 +126,26 @@ CREATE OR REPLACE PACKAGE BODY emprunt_tapi AS
         RETURN l_resultat;
         
      EXCEPTION
-        WHEN ex_id_null THEN
-            ROLLBACK;
-            logger.log_error('>>>ERREUR de de type ex_id_null', l_scope, null, l_params);
+        -- WHEN ex_id_null THEN
+        --     ROLLBACK;
+        --     logger.log_error('>>>ERREUR de de type ex_id_null', l_scope, null, l_params);
         
         
-            l_resultat :=  JSON_OBJECT(
-                'errors' VALUE JSON_ARRAY(
-                    JSON_OBJECT(
-                        'status'  VALUE '400',
-                        'title'   VALUE 'id non valide',
-                        'detail'  VALUE 'l id entre est null',
-                        'code'    VALUE TO_CHAR(-20001),
-                        'meta'    VALUE JSON_OBJECT(
-                            'timestamp' VALUE TO_CHAR(SYSDATE, 'YYYY-MM-DD"T"HH24:MI:SS')
-                        )
-                    )
-                )
-            );
+        --     l_resultat :=  JSON_OBJECT(
+        --         'errors' VALUE JSON_ARRAY(
+        --             JSON_OBJECT(
+        --                 'status'  VALUE '400',
+        --                 'title'   VALUE 'id non valide',
+        --                 'detail'  VALUE 'l id entre est null',
+        --                 'code'    VALUE TO_CHAR(-20001),
+        --                 'meta'    VALUE JSON_OBJECT(
+        --                     'timestamp' VALUE TO_CHAR(SYSDATE, 'YYYY-MM-DD"T"HH24:MI:SS')
+        --                 )
+        --             )
+        --         )
+        --     );
         
-            RETURN  l_resultat;
+        --     RETURN  l_resultat;
      
         WHEN no_data_found THEN
              
@@ -119,7 +158,7 @@ CREATE OR REPLACE PACKAGE BODY emprunt_tapi AS
                     JSON_OBJECT(
                         'status'  VALUE '404',
                         'title'   VALUE 'Emprunt non trouve',
-                        'detail'  VALUE 'Aucun cours correspondant a cet id',
+                        'detail'  VALUE 'Aucun emprunt correspondant a cet id',
                         'code'    VALUE TO_CHAR(-20002),
                         'meta'    VALUE JSON_OBJECT(
                             'timestamp' VALUE TO_CHAR(SYSDATE, 'YYYY-MM-DD"T"HH24:MI:SS')
@@ -159,7 +198,7 @@ CREATE OR REPLACE PACKAGE BODY emprunt_tapi AS
     *
     *@version       1.0
     *
-    * @example      l_resultant := emprunt_tapi.supprimer(2);
+    * @example      l_resultant := emprunt_api.supprimer(2);
     *
     * @issue        n/a
     *
@@ -231,7 +270,7 @@ CREATE OR REPLACE PACKAGE BODY emprunt_tapi AS
             l_reponse := JSON_OBJECT(
                 'errors' VALUE JSON_ARRAY(
                     JSON_OBJECT(
-                        'status'  VALUE '400',
+                        'status'  VALUE '404',
                         'title'   VALUE 'ID de l emprunt requis',
                         'detail'  VALUE 'Erreur id est null lors de l effacement de l emprunt',
                         'code'    VALUE TO_CHAR(-1),
@@ -250,7 +289,7 @@ CREATE OR REPLACE PACKAGE BODY emprunt_tapi AS
             l_reponse := JSON_OBJECT(
                 'errors' VALUE JSON_ARRAY(
                     JSON_OBJECT(
-                        'status'  VALUE '400',
+                        'status'  VALUE '404',
                         'title'   VALUE 'Emprunt non trouve',
                         'detail'  VALUE 'Erreur id inexistant dans la table',
                         'code'    VALUE TO_CHAR(-2),
@@ -274,7 +313,7 @@ CREATE OR REPLACE PACKAGE BODY emprunt_tapi AS
                     JSON_OBJECT(
                         'status'  VALUE '500',
                         'title'   VALUE 'Erreur système',
-                        'detail'  VALUE 'Erreur OTHERS lors de l effacement du cours',
+                        'detail'  VALUE 'Erreur OTHERS lors de l effacement du emprunt',
                         'code'    VALUE TO_CHAR(l_error_code),
                         'meta'    VALUE JSON_OBJECT(
                             'timestamp' VALUE TO_CHAR(SYSDATE, 'YYYY-MM-DD"T"HH24:MI:SS')
@@ -285,7 +324,7 @@ CREATE OR REPLACE PACKAGE BODY emprunt_tapi AS
             RETURN l_reponse;
             
     END supprimer;
-        
+     
 
 
 
@@ -294,7 +333,7 @@ CREATE OR REPLACE PACKAGE BODY emprunt_tapi AS
     *
     *@version       1.0
     *
-    * @example      l_resultant := emprunt_tapi.ajouter(2,3,1,'2026-01-02','2026-01-09','N');
+    * @example      l_resultant := emprunt_api.ajouter(2,3,1,'2026-01-02','2026-01-09','N');
     *
     * @issue        n/a
     *
@@ -361,6 +400,7 @@ CREATE OR REPLACE PACKAGE BODY emprunt_tapi AS
         
         
         l_reponse:= JSON_OBJECT(
+            'data' VALUE JSON_OBJECT(
                 'type'  VALUE 'emprunt',
                 'id'    VALUE l_id_emprunt,
                 'attributes' VALUE JSON_OBJECT(
@@ -370,7 +410,7 @@ CREATE OR REPLACE PACKAGE BODY emprunt_tapi AS
                     'dateDebut'         VALUE p_date_debut,
                     'dateRetourPruvue'  VALUE p_date_retour_prevue,
                     'enRetard'          VALUE 0
-                ),
+                )),
                 'meta' VALUE JSON_OBJECT(
                     'status'     VALUE 'success',
                     'statusCode' VALUE 201
@@ -431,7 +471,7 @@ CREATE OR REPLACE PACKAGE BODY emprunt_tapi AS
                 JSON_OBJECT(
                     'status'  VALUE '500',
                     'title'   VALUE 'Erreur système',
-                    'detail'  VALUE 'Erreur OTHERS lors de l ajout d un cours',
+                    'detail'  VALUE 'Erreur OTHERS lors de l ajout d un emprunt',
                     'code'    VALUE TO_CHAR(l_error_code),
                     'meta'    VALUE JSON_OBJECT('timestamp' VALUE TO_CHAR(SYSDATE, 'YYYY-MM-DD"T"HH24:MI:SS')
                     )
@@ -450,7 +490,7 @@ CREATE OR REPLACE PACKAGE BODY emprunt_tapi AS
     *
     *@version       1.0
     *
-    * @example      l_resultant := emprunt_tapi.modifier(2,null,4,null,'2026-01-20',null,null,'N');
+    * @example      l_resultant := emprunt_api.modifier(2,null,4,null,'2026-01-20',null,null,'N');
     *
     * @issue        n/a
     *
@@ -479,6 +519,7 @@ CREATE OR REPLACE PACKAGE BODY emprunt_tapi AS
             
             l_nbre_range    NUMBER; 
             rec_ancien_emprunt emprunt%ROWTYPE;
+            rec_nouv_emprunt emprunt%ROWTYPE;
             ex_id_emprunt_null EXCEPTION;
             l_resultat VARCHAR2(4000);
             
@@ -534,6 +575,9 @@ CREATE OR REPLACE PACKAGE BODY emprunt_tapi AS
             dateretour= COALESCE( p_nouv_dateretour, rec_ancien_emprunt.dateretour),
             enretard= COALESCE (p_nouv_enretard, rec_ancien_emprunt.enretard)
             WHERE idemprunt = p_id_emprunt;
+
+            SELECT * INTO rec_nouv_emprunt FROM emprunt WHERE idemprunt = p_id_emprunt;
+
             
             l_nbre_range := sql%rowcount;
             
@@ -550,12 +594,12 @@ CREATE OR REPLACE PACKAGE BODY emprunt_tapi AS
                 'type'  VALUE 'emprunt',
                 'id'    VALUE p_id_emprunt,
                 'attributes' VALUE JSON_OBJECT(
-                    'titreLivre'        VALUE l_verif_livre,
-                    'nomMembre'         VALUE l_verif_membre,
-                    'nomUtilisateur'    VALUE l_verif_utilisateur,
-                    'dateRetourPruvue'  VALUE p_nouv_dateretourprevue,
-                    'dateRetour'        VALUE p_nouv_dateretour,
-                    'enRetard'          VALUE p_nouv_enretard
+                    'titreLivre'        VALUE rec_nouv_emprunt.livre_idlivre,
+                    'nomMembre'         VALUE rec_nouv_emprunt.membre_idmembre,
+                    'nomUtilisateur'    VALUE rec_nouv_emprunt.utilisateur_idutilisateur,
+                    'dateRetourPruvue'  VALUE rec_nouv_emprunt.dateretourprevue,
+                    'dateRetour'        VALUE rec_nouv_emprunt.dateretour,
+                    'enRetard'          VALUE rec_nouv_emprunt.enretard
                 )
             ),
             'meta' VALUE JSON_OBJECT(
@@ -614,7 +658,7 @@ CREATE OR REPLACE PACKAGE BODY emprunt_tapi AS
                         JSON_OBJECT(
                             'status'  VALUE '500',
                             'title'   VALUE 'Erreur système',
-                            'detail'  VALUE 'Erreur OTHERS lors de la mise à jour du cours',
+                            'detail'  VALUE 'Erreur OTHERS lors de la mise à jour du emprunt',
                             'code'    VALUE TO_CHAR(l_error_code),
                             'meta'    VALUE JSON_OBJECT(
                                 'timestamp' VALUE TO_CHAR(SYSDATE, 'YYYY-MM-DD"T"HH24:MI:SS')
@@ -626,4 +670,5 @@ CREATE OR REPLACE PACKAGE BODY emprunt_tapi AS
         
         END modifier;
         
-END emprunt_tapi;
+END emprunt_api;
+/
