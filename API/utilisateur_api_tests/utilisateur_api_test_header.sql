@@ -26,7 +26,7 @@ CREATE OR REPLACE PACKAGE utilisateur_api_test IS
    --%test(test_supprimer_utilisateur_avec_id_null : suppression d'un utilisateur avec un id null)
    PROCEDURE test_supprimer_utilisateur_avec_id_null;
     
-    --%test(test_supprimer_utilisateur_avec_id_null_inexistant; : suppression d'un utilisateur avec un id inexistant)
+    --%test(test_supprimer_utilisateur_avec_id_null_inexistant : suppression d'un utilisateur avec un id inexistant)
    PROCEDURE test_supprimer_utilisateur_avec_id_inexistant;
    
    
@@ -42,3 +42,4 @@ CREATE OR REPLACE PACKAGE utilisateur_api_test IS
 
 
 END utilisateur_api_test;
+/

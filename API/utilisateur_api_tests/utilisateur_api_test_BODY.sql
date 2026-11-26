@@ -1,8 +1,18 @@
---Ecrit par Khalil Arrahmen Bouraoui a partir du document fournt par JF Brodeur
-
+ 
 
 CREATE OR REPLACE PACKAGE BODY utilisateur_api_test AS
 
+    /**
+    * Description   Procedure de test du bon fonctionnement de la fonction utilisateur_api.ajouter_utilisateur (Fait a partir du document fournit par JF Brodeur)
+    *
+    *@version   1.0
+    *
+    *
+    * @issue        n/a
+    *
+    * @author       Khalil Arrahmen Bouraoui
+    * @created      2026-11-08
+    */
 
         PROCEDURE test_ajouter_utilisateur AS
         
@@ -30,7 +40,16 @@ CREATE OR REPLACE PACKAGE BODY utilisateur_api_test AS
         
         
         
-        
+        /**
+    * Description   Procedure de test pour la fonction utilisateur_api.ajouter_utilisateur pour tester le cas de reception d'un nom_utilisateur nulle (Fait a partir du document fournit par JF Brodeur)
+    *
+    *@version   1.0
+    *
+    * @issue        n/a
+    *
+    * @author       Khalil Arrahmen Bouraoui
+    * @created      2026-11-08
+    */
         PROCEDURE test_ajouter_utilisateur_valeur_null AS
         
             l_reponse VARCHAR2(4000);
@@ -56,7 +75,17 @@ CREATE OR REPLACE PACKAGE BODY utilisateur_api_test AS
         
         
         
-        
+        /**
+    * Description   Procedure de test du bon fonctionnement de la fonction utilisateur_api.retourner_utilisateur (Fait a partir du document fournit par JF Brodeur)
+    *
+    *@version   1.0
+    *
+    *
+    * @issue        n/a
+    *
+    * @author       Khalil Arrahmen Bouraoui
+    * @created      2026-11-08
+    */
         PROCEDURE test_retourner_utilisateur AS
             l_expected NUMBER;
             l_id_utilisateur utilisateur.idutilisateur%TYPE;
@@ -74,7 +103,17 @@ CREATE OR REPLACE PACKAGE BODY utilisateur_api_test AS
         END test_retourner_utilisateur;
         
         
-        
+        /**
+    * Description   Procedure de test pour la fonction utilisateur_api.retourner_utilisateur pour tester le cas de reception d'un id qui ne correspond a aucun utilisateur (Fait a partir du document fournit par JF Brodeur)
+    *
+    *@version   1.0
+    *
+    *
+    * @issue        n/a
+    *
+    * @author       Khalil Arrahmen Bouraoui
+    * @created      2026-11-08
+    */
         
         PROCEDURE test_retourner_utilisateur_non_existant AS
             l_id_inexistant NUMBER;
@@ -92,6 +131,18 @@ CREATE OR REPLACE PACKAGE BODY utilisateur_api_test AS
             UT.EXPECT(l_status_erreur).TO_EQUAL('404');
         END test_retourner_utilisateur_non_existant;
         
+
+        /**
+    * Description   Procedure de test du bon fonctionnement de la fonction utilisateur_api.supprimer_utilisateur (Fait a partir du document fournit par JF Brodeur)
+    *
+    *@version   1.0
+    *
+    *
+    * @issue        n/a
+    *
+    * @author       Khalil Arrahmen Bouraoui
+    * @created      2026-11-08
+    */
         
         PROCEDURE test_supprimer_utilisateur AS
             l_id_utilisateur utilisateur.idutilisateur%TYPE;
@@ -103,14 +154,25 @@ CREATE OR REPLACE PACKAGE BODY utilisateur_api_test AS
             l_reponse_ajout := utilisateur_api.ajouter_utilisateur('Asupprimer','Asupprimer');
             l_id_utilisateur := JSON_VALUE(l_reponse_ajout, '$.data.id');
         --act
-            l_reponse := utilisateur_api.supprimer_utilisateur(l_id_utilisateur);
+            l_reponse := utilisateur_api.supprimer_utilisateur(l_id_utilisateur,'O');
             l_id_supprime := COALESCE(JSON_VALUE(l_reponse, '$.data.id'),-9999);
             DBMS_OUTPUT.PUT_LINE('l_reponse: ' || l_reponse);
             DBMS_OUTPUT.PUT_LINE('l_id_supprime ' || l_id_supprime);
         --assert
-            ut.expect(l_id_utilisateur).to_equal(l_id_utilisateur);
+            ut.expect (l_id_supprime).to_equal(l_id_utilisateur);
         END test_supprimer_utilisateur;
         
+
+        /**
+    * Description   Procedure de test pour la fonction utilisateur_api.ajouter_utilisateur pour tester le cas de reception d'un id null (Fait a partir du document fournit par JF Brodeur)
+    *
+    *@version   1.0
+    *
+    * @issue        n/a
+    *
+    * @author       Khalil Arrahmen Bouraoui
+    * @created      2026-11-08
+    */
         
         PROCEDURE test_supprimer_utilisateur_avec_id_null AS
             l_reponse   VARCHAR(4000);
@@ -127,7 +189,16 @@ CREATE OR REPLACE PACKAGE BODY utilisateur_api_test AS
             
         END test_supprimer_utilisateur_avec_id_null;
         
-        
+        /**
+    * Description   Procedure de test pour la fonction utilisateur_api.ajouter_utilisateur pour tester le cas de reception d'un id qui ne correspond a aucun utilisateur (Fait a partir du document fournit par JF Brodeur)
+    *
+    *@version   1.0
+    *
+    * @issue        n/a
+    *
+    * @author       Khalil Arrahmen Bouraoui
+    * @created      2026-11-08
+    */
         
         
         PROCEDURE test_supprimer_utilisateur_avec_id_inexistant AS
@@ -146,7 +217,17 @@ CREATE OR REPLACE PACKAGE BODY utilisateur_api_test AS
         END test_supprimer_utilisateur_avec_id_inexistant;
         
         
-        
+        /**
+    * Description   Procedure de test du bon fonctionnement de la fonction utilisateur_api.modifier_utilisateur (Fait a partir du document fournit par JF Brodeur)
+    *
+    *@version   1.0
+    *
+    *
+    * @issue        n/a
+    *
+    * @author       Khalil Arrahmen Bouraoui
+    * @created      2026-11-08
+    */
         
         
         PROCEDURE test_modifier_utilisateur AS
@@ -169,7 +250,16 @@ CREATE OR REPLACE PACKAGE BODY utilisateur_api_test AS
         END test_modifier_utilisateur;
         
         
-        
+        /**
+    * Description   Procedure de test pour la fonction utilisateur_api.modifier_utilisateur pour tester le cas de reception d'un id null (Fait a partir du document fournit par JF Brodeur)
+    *
+    *@version   1.0
+    *
+    * @issue        n/a
+    *
+    * @author       Khalil Arrahmen Bouraoui
+    * @created      2026-11-08
+    */
         
         PROCEDURE test_modifier_utilisateur_avec_id_null AS
             l_reponse   VARCHAR(4000);
@@ -186,6 +276,17 @@ CREATE OR REPLACE PACKAGE BODY utilisateur_api_test AS
         END test_modifier_utilisateur_avec_id_null;
         
         
+        /**
+    * Description   Procedure de test pour la fonction utilisateur_api.modifier_utilisateur pour tester le cas de reception d'un id qui ne correspond a aucun utilisateur (Fait a partir du document fournit par JF Brodeur)
+    *
+    *@version   1.0
+    *
+    * @issue        n/a
+    *
+    * @author       Khalil Arrahmen Bouraoui
+    * @created      2026-11-08
+    */
+
         PROCEDURE test_modifier_utilisateur_avec_id_inexistant AS
             l_reponse   VARCHAR(4000);
             l_status VARCHAR2(10);
@@ -202,4 +303,4 @@ CREATE OR REPLACE PACKAGE BODY utilisateur_api_test AS
         
         
 END ;
-            
+/          
