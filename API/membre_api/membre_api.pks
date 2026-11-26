@@ -1,8 +1,8 @@
 --Zakaria Harcha
 
-CREATE OR REPLACE PACKAGE membre_tapi IS
+CREATE OR REPLACE PACKAGE membre_api IS
 
-    TYPE membre_tapi_rec IS RECORD (
+    TYPE membre_api_rec IS RECORD (
         idmembre          membre.idmembre%TYPE,
         nom               membre.nom%TYPE,
         prenom            membre.prenom%TYPE,
@@ -13,11 +13,10 @@ CREATE OR REPLACE PACKAGE membre_tapi IS
         adresse_idadresse membre.adresse_idadresse%TYPE
     );
 
-    TYPE membre_tapi_tab IS TABLE OF membre_tapi_rec;
+    TYPE membre_api_tab IS TABLE OF membre_api_rec;
 
     -- INSERT
     FUNCTION ins_membre (
-        p_id_membre         IN membre.idmembre%TYPE,
         p_nom               IN membre.nom%TYPE,
         p_prenom            IN membre.prenom%TYPE,
         p_numero_telephone  IN membre.numerotelephone%TYPE,
@@ -55,6 +54,6 @@ CREATE OR REPLACE PACKAGE membre_tapi IS
         p_taille    IN NUMBER DEFAULT 4
     ) RETURN VARCHAR2;
 
-END membre_tapi;
+END membre_api;
 /
 SHOW ERRORS;

@@ -1,5 +1,5 @@
 
-CREATE OR REPLACE PACKAGE BODY membre_tapi IS
+CREATE OR REPLACE PACKAGE BODY membre_api IS
 
     
     gc_scope_prefix CONSTANT VARCHAR2(31) := LOWER($$PLSQL_UNIT) || '.';
@@ -9,13 +9,12 @@ CREATE OR REPLACE PACKAGE BODY membre_tapi IS
      *
      * @version     1.0.0
      *
-     * @example     l_reponse := membre_tapi.ins_membre(NULL, 'Tremblay', 'Marie', '5145551234', 'marie@test.ca', SYSDATE, 1, 1, 'O');
+     * @example     l_reponse := membre_api.ins_membre('Tremblay', 'Marie', '5145551234', 'marie@test.ca', SYSDATE, 1, 1, 'O');
      *
      * @issue       n/a
      *
      * @author      Zakaria Harcha
      * @created     2026-11-05
-     * @param       p_id_membre         Identifiant NULL pour generation automatique
      * @param       p_nom               Nom du membre
      * @param       p_prenom            Prenom du membre
      * @param       p_numero_telephone  Telephone du membre
@@ -31,7 +30,6 @@ CREATE OR REPLACE PACKAGE BODY membre_tapi IS
 
 
     FUNCTION ins_membre (
-        p_id_membre         IN membre.idmembre%TYPE,
         p_nom               IN membre.nom%TYPE,
         p_prenom            IN membre.prenom%TYPE,
         p_numero_telephone  IN membre.numerotelephone%TYPE,
@@ -48,7 +46,6 @@ CREATE OR REPLACE PACKAGE BODY membre_tapi IS
         ex_valeur_null EXCEPTION;
         PRAGMA EXCEPTION_INIT(ex_valeur_null, -1400);
     BEGIN
-        logger.append_param(l_params, 'p_id_membre: ', p_id_membre);
         logger.append_param(l_params, 'p_nom: ', p_nom);
         logger.append_param(l_params, 'p_prenom: ', p_prenom);
         logger.append_param(l_params, 'p_numero_telephone: ', p_numero_telephone);
@@ -61,10 +58,10 @@ CREATE OR REPLACE PACKAGE BODY membre_tapi IS
 
         
         INSERT INTO membre (
-            idmembre, nom, prenom, numerotelephone, adressecourriel,
+            nom, prenom, numerotelephone, adressecourriel,
             dateabonnement, status_idstatus, adresse_idadresse
         ) VALUES (
-            p_id_membre, p_nom, p_prenom, p_numero_telephone, p_adresse_courriel,
+            p_nom, p_prenom, p_numero_telephone, p_adresse_courriel,
             p_date_abonnement, p_status_idstatus, p_adresse_idadresse
         ) RETURNING idmembre INTO l_id_membre;
 
@@ -115,7 +112,7 @@ CREATE OR REPLACE PACKAGE BODY membre_tapi IS
      *              
      * @version     1.0.0
      *
-     * @example     l_reponse := membre_tapi.upd_membre(p_id_membre => 10, p_nom => 'Gagnon', p_test => 'O');
+     * @example     l_reponse := membre_api.upd_membre(p_id_membre => 10, p_nom => 'Gagnon', p_test => 'O');
      *
      * @issue       n/a
      *
@@ -234,7 +231,7 @@ CREATE OR REPLACE PACKAGE BODY membre_tapi IS
      *
      * @version     1.0.0
      *
-     * @example     l_reponse := membre_tapi.del_membre(10, 'O');
+     * @example     l_reponse := membre_api.del_membre(10, 'O');
      *
      * @issue       n/a
      *
@@ -310,7 +307,7 @@ CREATE OR REPLACE PACKAGE BODY membre_tapi IS
      *
      * @version     1.0.0
      *
-     * @example     l_reponse := membre_tapi.get_membre(NULL, 5, 0, 4);
+     * @example     l_reponse := membre_api.get_membre(NULL, 5, 0, 4);
      *
      * @issue       n/a
      *
@@ -413,6 +410,6 @@ CREATE OR REPLACE PACKAGE BODY membre_tapi IS
             RAISE;
     END get_membre;
 
-END membre_tapi;
+END membre_api;
 /
-SHOW ERRORS PACKAGE BODY membre_tapi;
+SHOW ERRORS PACKAGE BODY membre_api;
